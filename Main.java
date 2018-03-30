@@ -1,5 +1,7 @@
 public static class Main {
 	public static void main(String [ ] args) {
-		System.out.println("coucou");
+
+		System.out.println(" Voila le badminton classement : 1er - 2eme - 3eme");
+
 	}
 }
