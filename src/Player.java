@@ -1,28 +1,27 @@
 package src;
 
-public class Joueurs {
+public class Player {
 
     private final int stamina;
     private int staminaMatch;
     private int power;
     private String name;
-    private int rank;
-    private boolean sex; //0 = homme 1 = femme
+    private int points;
+    private boolean sex; //0 = homme,  1 = femme
+    private int id;
 
-    public Joueurs(int stamina, int power, String name, int rank, boolean sex) {
+    public Player(int id, String name, int stamina, int power,  boolean sex) {
+        this.id = id;
         this.stamina = stamina;
         this.staminaMatch = stamina;
         this.power = power;
         this.name = name;
-        this.rank = rank;
+        this.points = 1;
         this.sex = sex;
     }
 
-
-
-
-    public void setRank(int rank) {
-        this.rank = rank;
+    public void setRank(int points) {
+        this.points = points;
     }
 
     public void setStaminaMatch(int staminaMatch) {
@@ -46,11 +45,15 @@ public class Joueurs {
         return name;
     }
 
-    public int getRank() {
-        return rank;
+    public int getPoints() {
+        return points;
     }
 
-    public boolean isSex() {
+    public boolean getSex() {
         return sex;
+    }
+
+    public int getId() {
+        return id;
     }
 }
