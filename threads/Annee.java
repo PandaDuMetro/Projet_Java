@@ -1,15 +1,16 @@
 package threads;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import src.Player;
 
 public class Annee extends Thread {
 
-	private ArrayList<Tournoi> tournois = new ArrayList<Tournoi>();
-	private ArrayList<Player> players;
+	private List<Tournoi> tournois = new ArrayList<Tournoi>();
+	private List<Player> players;
 	
-	public Annee(ArrayList<Player> players) {
+	public Annee(List<Player> players) {
 		super();
 		this.players = players;
 	}
