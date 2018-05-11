@@ -1,6 +1,9 @@
 # Projet_Java
 
 # Ajouter la librairie Gson.
+
+Le .jar est à la racine du projet.
+
 Pour Eclipse :
 https://stackoverflow.com/questions/2824515/how-to-add-external-library-properly-in-eclipse#2824531
 
