@@ -1,17 +1,20 @@
 package src;
 
-public class Player {
+import src.services.PlayerService;
 
-    private final int stamina;
-    private int staminaMatch;
-    private int power;
-    private String name;
-    private int points;
-    private boolean sex; //0 = homme,  1 = femme
-    private int id;
+public class Player extends PlayerService {
 
+
+    public Player(){
+
+    }
+
+    public Player(int id){
+        this.url = "http://localhost:8080/players";
+        this.getFromDb(id);
+    }
     public Player(int id, String name, int stamina, int power,  boolean sex) {
-        this.id = id;
+        this._id = id;
         this.stamina = stamina;
         this.staminaMatch = stamina;
         this.power = power;
@@ -19,6 +22,8 @@ public class Player {
         this.points = 1;
         this.sex = sex;
     }
+
+
 
     public void setRank(int points) {
         this.points = points;
@@ -54,6 +59,6 @@ public class Player {
     }
 
     public int getId() {
-        return id;
+        return _id;
     }
 }
