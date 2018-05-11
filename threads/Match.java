@@ -7,7 +7,7 @@ import src.Player;
 public class Match extends Thread {
 	private Player player1;
 	private Player player2;
-	private int[] points = {0,0};
+	private int[] points = new int[6]; //contient tout les points de sets (2 à 2), pour la BDD
 	private int[] sets = new int[2];
 	private Player winner;
 	private int nbRonde;
@@ -38,23 +38,22 @@ public class Match extends Thread {
 	@Override
 	public void run() {
 		Random rand = new Random();
+		int set = 0;
 		while(this.sets[0] != 2 || this.sets[1] != 2 || this.player1.getStaminaMatch() < 1 || this.player2.getStaminaMatch() < 1) {
-			while(this.setIsOver(this.points[0], this.points[1]) == 0) {
+			while(this.setIsOver(this.points[set+0], this.points[set+1]) == 0) {
 				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)); //calcul valeurs
 				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100));
 				if(val1 > val2) { //joueur 1 gagne le point
-					this.points[0]++;
+					this.points[set+0]++;
 				}
 				else if(val2 > val1) { //joueur 2 gagne le point
-					this.points[1]++;
+					this.points[set+1]++;
 				}
 				this.player1.setStaminaMatch(this.player1.getStaminaMatch() - (this.player1.getPower()/100)); //retrait de stamina
 				this.player2.setStaminaMatch(this.player2.getStaminaMatch() - (this.player2.getPower()/100));
-				//requete victoire point
 			}
-			this.sets[this.setIsOver(this.points[0], this.points[1]) - 1]++;//requete victoire set
-			this.points[0] = 0;
-			this.points[1] = 0;
+			this.sets[this.setIsOver(this.points[set+0], this.points[set+1]) - 1]++;
+			set++;
 		}
 		if(this.sets[0] == 2 || this.player2.getStaminaMatch() < 1) {
 			this.winner = this.player1;
