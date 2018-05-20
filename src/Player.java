@@ -5,15 +5,11 @@ import src.services.PlayerService;
 public class Player extends PlayerService {
 
 
-    public Player(){
-
+    public Player(String name) {
+        this.getFromDb(name);
     }
 
-    public Player(int id){
-        this.url = "http://localhost:8080/players";
-        this.getFromDb(id);
-    }
-    public Player(int id, String name, int stamina, int power,  boolean sex) {
+    public Player(int id, String name, int stamina, int power, boolean sex) {
         this._id = id;
         this.stamina = stamina;
         this.staminaMatch = stamina;
@@ -22,7 +18,6 @@ public class Player extends PlayerService {
         this.points = 1;
         this.sex = sex;
     }
-
 
 
     public void setRank(int points) {
