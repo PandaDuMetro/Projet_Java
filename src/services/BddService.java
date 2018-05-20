@@ -12,8 +12,6 @@ public abstract class BddService {
     protected String url;
     protected String serverResponse;
 
-    public abstract void addToDb();
-    public abstract void getFromDb(int id);
 
     public void executePost(String targetURL, String urlParameters) {
         HttpURLConnection connection = null;

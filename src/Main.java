@@ -1,6 +1,5 @@
 package src;
 
-import com.google.gson.Gson;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,8 +10,6 @@ import java.util.Random;
 public class Main {
 
 	public static void main(String [ ] args) {
-
-
     }
 
     public static void remplirFichier() {

@@ -3,24 +3,29 @@ package threads;
 import java.util.Random;
 
 import src.Player;
+import src.services.MatchService;
 
 public class Match extends Thread {
 	private Player player1;
 	private Player player2;
-	private int[] points = new int[6]; //contient tout les points de sets (2 à 2), pour la BDD
+	private int[] points = new int[6]; //contient tout les points de sets (2 a 2), pour la BDD
 	private int[] sets = new int[2];
 	private Player winner;
 	private int nbRonde;
+
+	private MatchService service;
+
+	public Match(String id) {
+	    this.service = new MatchService(this);
+	    this.service.getFromDb(id);
+    }
 
 	public Match(Player player1, Player player2, int nbRonde) {
 		super();
 		this.player1 = player1;
 		this.player2 = player2;
 		this.nbRonde = nbRonde;
-	}
-	
-	public Player getWinner() {
-		return this.winner;
+		this.service = new MatchService(this);
 	}
 	
 	public int setIsOver(int points1, int points2) { //renvoie 1 ou 2 selon le joueur qui gagne le set, ou 0 si 
@@ -72,4 +77,52 @@ public class Match extends Thread {
 		this.player1.setStaminaMatch(this.player1.getStamina()); //on remet les staminas a la normale
 		this.player2.setStaminaMatch(this.player2.getStamina());
 	}
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public int[] getPoints() {
+        return points;
+    }
+
+    public int[] getSets() {
+        return sets;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public int getNbRonde() {
+        return nbRonde;
+    }
+
+    public void setPlayer1(Player player1) {
+        this.player1 = player1;
+    }
+
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
+    }
+
+    public void setPoints(int[] points) {
+        this.points = points;
+    }
+
+    public void setSets(int[] sets) {
+        this.sets = sets;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public void setNbRonde(int nbRonde) {
+        this.nbRonde = nbRonde;
+    }
 }
