@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="74.0" prefHeight="50.0" prefWidth="500.0" text="Friendly Match">
+         <font>
+            <Font name="Noto Sans CJK JP Medium" size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="132.0" layoutY="174.0" text="Player 1">
+         <font>
+            <Font name="Noto Sans CJK JP Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="616.0" layoutY="174.0" text="Player 2">
+         <font>
+            <Font name="Noto Sans CJK JP Medium" size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="67.0" layoutY="230.0" prefHeight="68.0" prefWidth="200.0" />
+      <ScrollPane layoutX="551.0" layoutY="230.0" prefHeight="68.0" prefWidth="200.0" />
+      <Button fx:id="randomButton" layoutX="192.0" layoutY="343.0" mnemonicParsing="false" onAction="#randomButtonAction" prefHeight="50.0" prefWidth="150.0" text="Random" />
+      <Button fx:id="returnButton" layoutX="476.0" layoutY="343.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
+      <Button fx:id="launchButton" layoutX="300.0" layoutY="432.0" mnemonicParsing="false" onAction="#launchButtonAction" prefHeight="75.0" prefWidth="200.0" text="Launch" />
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 
 import java.util.Random;
 
@@ -60,7 +60,7 @@ public class Match extends Thread {
 			this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
 					(this.sets[0] - this.sets[1])); 						//calcul des nouveaux points au classement
-			//requete victoire match
+			//requete victoire match										
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;

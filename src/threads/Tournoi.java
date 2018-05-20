@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -47,6 +47,7 @@ public class Tournoi extends Thread {
 				System.out.println("running"); //attente des threads
 			}
 			//on récupère les vainqueurs pour la prochaine ronde
+			this.players.clear();
 			this.players = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList()); 
 		}
 		//envoyer requete gagnant tournoi

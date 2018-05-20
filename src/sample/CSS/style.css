@@ -1,0 +1,19 @@
+.root{
+    -fx-background-color:#dfe3e5 ;
+}
+
+.button{
+    -fx-padding: 20px;
+    -fx-background-color:  #aaa6a6;
+    -fx-border-style: solid;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+
+}
+
+
+.button:hover{
+    -fx-background-color: #ccc9c9;
+}
