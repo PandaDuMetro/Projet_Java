@@ -15,10 +15,10 @@ Dans un terminal aller dans le dossier server,
 
 ## Premier lancement : 
 
-Installer [nodejs](https://nodejs.org/en/download/) <br>
+#### Installer [nodejs](https://nodejs.org/en/download/) <br>
 Pour linux installation depuis le [PPA](https://nodejs.org/en/download/package-manager/)
 
-Installer MongoDB : 
+#### Installer MongoDB : 
 * [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 * [Linux](https://docs.mongodb.com/manual/administration/install-on-linux/)
 #### Installer les modules :
