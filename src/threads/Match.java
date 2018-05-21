@@ -12,6 +12,7 @@ public class Match extends Thread {
 	private int[] sets = new int[2];
 	private Player winner;
 	private int nbRonde;
+	private String _id;
 
 	private MatchService service;
 
@@ -69,13 +70,15 @@ public class Match extends Thread {
 			this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
 					(this.sets[0] - this.sets[1])); 						//calcul des nouveaux points au classement
-			//requete victoire match										
+			this.service.addToDb();
+			//requete victoire match
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;
 			this.player2.setRank((this.nbRonde/7)*
 					(this.player1.getPoints()/this.player2.getPoints())*
 					(this.sets[1] - this.sets[0]));
+			this.service.addToDb();
 			//requete victoire match
 		}
 		this.player1.setStaminaMatch(this.player1.getStamina()); //on remet les staminas a la normale
@@ -124,5 +127,13 @@ public class Match extends Thread {
 
     public void setNbRonde(int nbRonde) {
         this.nbRonde = nbRonde;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }

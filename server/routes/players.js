@@ -50,6 +50,7 @@ router.post('/getall', (req, res, next) => {
 });
 
 router.post('/updatepoints', (req, res, next) => {
+  console.log('update points '+req.body)
   Player.update({_id: req.body.id}, {points: req.body.points});
 });
 

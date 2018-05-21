@@ -22,7 +22,9 @@ public class Player extends PlayerService {
 
 
     public void setRank(int points) {
+
         this.points = points;
+        this.updateDb();
     }
 
     public void setStaminaMatch(int staminaMatch) {
