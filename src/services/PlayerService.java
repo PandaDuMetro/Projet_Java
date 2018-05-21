@@ -15,7 +15,7 @@ public class PlayerService extends BddService {
     protected String name;
     protected int points;
     protected boolean sex; //0 = homme,  1 = femme
-    protected int _id;
+    protected String _id;
 
     public PlayerService(){
         this.url = "http://localhost:8080/players";
@@ -24,14 +24,11 @@ public class PlayerService extends BddService {
     public void addToDb(){
         Gson json = new Gson();
         this.executePost(this.url+"/newplayer", json.toJson(this));
-        System.out.println(this.serverResponse);
     }
 
     public void getFromDb(String name){
-        Type listType = new TypeToken<List<String>>() {}.getType();
         this.executePost(this.url+"/getplayer", "{\"name\":\""+name+"\"}");
         Gson json = new Gson();
-        System.out.println(this.serverResponse);
         PlayerService elts = json.fromJson(this.serverResponse, Player.class);
         this.name = ((Player) elts).getName();
         this._id = ((Player) elts).getId();
@@ -44,5 +41,8 @@ public class PlayerService extends BddService {
     public void updateDb(){
         this.executePost(this.url+"/updatepoints", "{\"id\": \""+this._id+ "\"points\": \""+this.points+"\" ]");
     }
+
+
+
 
 }

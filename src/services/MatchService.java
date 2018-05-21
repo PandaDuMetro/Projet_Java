@@ -2,7 +2,7 @@ package src.services;
 
 import com.google.gson.Gson;
 import src.Player;
-import threads.Match;
+import src.threads.Match;
 
 public class MatchService extends BddService {
 
