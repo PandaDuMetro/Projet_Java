@@ -18,7 +18,8 @@ public class Main extends Application {
 	
 	@Override
     public void start(Stage primaryStage) throws Exception{
-		Classement menRanking = new Classement();
+		Classement menRanking = new Classement(false);
+		Classement womenRanking = new Classement(true);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("sample/Scenes/Menu.fxml"));
 		loader.setController(new Controller(menRanking));
 		Parent root = loader.load();

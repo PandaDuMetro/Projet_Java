@@ -2,7 +2,7 @@ package src.services;
 
 import com.google.gson.Gson;
 import src.Player;
-import threads.Match;
+import src.threads.Match;
 
 public class MatchService extends BddService {
 
@@ -18,12 +18,14 @@ public class MatchService extends BddService {
                 this.match.getPoints(), this.match.getSets(), "jeancule", this.match.getNbRonde());
         Gson json = new Gson();
         return json.toJson(toSave);
-
     }
 
     public void addToDb() {
         this.executePost(this.url + "/newmatch", this.getParameters());
         System.out.println(this.serverResponse);
+        Gson json = new Gson();
+        Match res = json.fromJson(this.serverResponse, Match.class);
+        this.match.set_id(res.get_id());
     }
 
     public void getFromDb(String id) {

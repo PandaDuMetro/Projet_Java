@@ -6,11 +6,12 @@ public class Player extends PlayerService {
 
 
     public Player(String name) {
+        super();
         this.getFromDb(name);
     }
 
-    public Player(int id, String name, int stamina, int power, boolean sex) {
-        this._id = id;
+    public Player( String name, int stamina, int power, boolean sex) {
+        super();
         this.stamina = stamina;
         this.staminaMatch = stamina;
         this.power = power;
@@ -21,7 +22,9 @@ public class Player extends PlayerService {
 
 
     public void setRank(int points) {
+
         this.points = points;
+        this.updateDb();
     }
 
     public void setStaminaMatch(int staminaMatch) {
@@ -53,8 +56,19 @@ public class Player extends PlayerService {
         return sex;
     }
 
-    public int getId() {
+    public String getId() {
         return _id;
     }
-    
+    @Override
+    public String toString() {
+        return "Player{" +
+                "stamina=" + stamina +
+                ", staminaMatch=" + staminaMatch +
+                ", power=" + power +
+                ", name='" + name + '\'' +
+                ", points=" + points +
+                ", sex=" + sex +
+                ", _id='" + _id + '\'' +
+                '}';
+    }
 }
