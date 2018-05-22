@@ -9,7 +9,7 @@ import src.controllers.MatchController;
 public class FriendlyMatch extends Thread { //semblable a match mais affichage dynamique
 	private Player player1;
 	private Player player2;
-	private int[] points = {0,0,0,0,0,0}; //contient tout les points de sets (2 à 2), pour la BDD
+	private int[] points = {0,0,0,0,0,0}; //contient tout les points de sets (2 a 2), pour la BDD
 	private int[] sets = {0,0};
 	private Player winner;
 	private FriendlyMatchController controller;

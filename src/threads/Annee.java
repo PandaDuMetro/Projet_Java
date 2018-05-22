@@ -25,7 +25,7 @@ public class Annee extends Thread {
 
 	@Override
 	public void run() {
-		//remettre les classements à 1 pour le début d'année
+		//remettre les classements a 1 pour le debut d'annee
 		for (Player elt: this.players) {
             elt.setRank(1);
         }
@@ -34,7 +34,7 @@ public class Annee extends Thread {
         }
 		//lancer tout les tournois 1 a 1
 		//requete nouveau tournoi
-		//attendre fin d'un tournoi pour lancer le prochain
+		//attendre fin dU tournoi pour lancer le prochain
 		for(int i = 0; i < 6; i++) {
 			this.tournois.get(i).start();
 			try {
