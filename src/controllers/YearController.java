@@ -27,7 +27,7 @@ public class YearController extends Controller {
     @FXML
     public void returnButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",800, 550,new Controller(this.menRanking));
+            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking));
         }catch (Exception e){
             e.printStackTrace();
         }

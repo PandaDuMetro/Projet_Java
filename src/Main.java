@@ -24,7 +24,7 @@ public class Main extends Application {
 		loader.setController(new Controller(menRanking));
 		Parent root = loader.load();
         primaryStage.setTitle("My beautiful view");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 1000, 750));
         root.getStylesheets().add("src/sample/CSS/style.css");
         primaryStage.show();
     }

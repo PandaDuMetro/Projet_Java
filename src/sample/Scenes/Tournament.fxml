@@ -7,27 +7,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="42.0" prefHeight="50.0" prefWidth="500.0" text="Tournament Results">
+      <Label alignment="CENTER" layoutX="250.0" layoutY="45.0" prefHeight="50.0" prefWidth="500.0" text="Tournament Results">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="rankingButton" layoutX="583.0" layoutY="320.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="50.0" prefWidth="150.0" text="Ranking" />
-      <Button fx:id="returnButton" layoutX="583.0" layoutY="428.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
-      <ScrollPane layoutX="116.0" layoutY="254.0" prefHeight="255.0" prefWidth="293.0" />
-      <Label layoutX="235.0" layoutY="208.0" text="Matchs">
+      <Button fx:id="rankingButton" layoutX="650.0" layoutY="375.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="100.0" prefWidth="200.0" text="Ranking" />
+      <Button fx:id="returnButton" layoutX="650.0" layoutY="579.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="100.0" prefWidth="200.0" text="Return" />
+      <ScrollPane layoutX="118.0" layoutY="278.0" prefHeight="351.0" prefWidth="366.0" />
+      <Label layoutX="274.0" layoutY="213.0" text="Matchs">
          <font>
-            <Font name="Noto Sans CJK JP Medium" size="16.0" />
+            <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="551.0" layoutY="152.0" text="Winner :">
+      <Label layoutX="615.0" layoutY="213.0" text="Winner :">
          <font>
-            <Font name="Noto Sans CJK JP Medium" size="16.0" />
+            <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="winnerLabel" layoutX="648.0" layoutY="157.0" text="WinnerLabel" />
-      <ChoiceBox layoutX="75.0" layoutY="120.0" prefWidth="150.0" />
+      <Label fx:id="winnerLabel" layoutX="724.0" layoutY="217.0" text="WinnerLabel">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ChoiceBox layoutX="163.0" layoutY="127.0" prefHeight="50.0" prefWidth="200.0" />
+      <Button layoutX="775.0" layoutY="45.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Change Sex" />
+      <Label layoutX="775.0" layoutY="111.0" text="Sex of the Tournament" />
    </children>
 </AnchorPane>

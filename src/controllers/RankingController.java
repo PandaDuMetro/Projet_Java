@@ -50,7 +50,7 @@ public class RankingController extends Controller {
 		        		loader2.setController(self);
 		        		Parent root = loader2.load();
 		                newStage.setTitle("Player window");
-		                newStage.setScene(new Scene(root, 800, 500));
+		                newStage.setScene(new Scene(root, 1000, 750));
 		                root.getStylesheets().add("src/sample/CSS/style.css");
 		                newStage.show();
 		                Player player = new Player(

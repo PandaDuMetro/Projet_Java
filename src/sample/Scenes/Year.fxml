@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="525.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="59.0" prefHeight="50.0" prefWidth="500.0" text="End of the year">
+      <Label alignment="CENTER" layoutX="250.0" layoutY="61.0" prefHeight="50.0" prefWidth="500.0" text="End of the year">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="75.0" layoutY="146.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 1" />
-      <Button layoutX="75.0" layoutY="238.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 3" />
-      <Button layoutX="75.0" layoutY="331.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 5" />
-      <Button layoutX="575.0" layoutY="146.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 2" />
-      <Button layoutX="575.0" layoutY="238.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 4" />
-      <Button layoutX="575.0" layoutY="331.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Tournament 6" />
-      <Button fx:id="rankingButton" layoutX="225.0" layoutY="432.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="50.0" prefWidth="150.0" text="Ranking" />
-      <Button fx:id="returnButton" layoutX="425.0" layoutY="432.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
+      <Button layoutX="111.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 1" />
+      <Button layoutX="111.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 3" />
+      <Button layoutX="111.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 5" />
+      <Button layoutX="675.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 2" />
+      <Button layoutX="675.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 4" />
+      <Button layoutX="675.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 6" />
+      <Button fx:id="rankingButton" layoutX="275.0" layoutY="573.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="75.0" prefWidth="200.0" text="Ranking" />
+      <Button fx:id="returnButton" layoutX="550.0" layoutY="573.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="75.0" prefWidth="200.0" text="Return" />
    </children>
 </AnchorPane>

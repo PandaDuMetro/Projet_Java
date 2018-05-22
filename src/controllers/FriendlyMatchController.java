@@ -62,6 +62,7 @@ public class FriendlyMatchController extends Controller {
 		for (Player elt: this.menRanking.getPlayers())
 		{
 		    Label label = new Label(i + " " + elt.getName() + " -- points : " + elt.getPoints());
+		    label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
 		    	public void handle(MouseEvent e) {
@@ -79,6 +80,7 @@ public class FriendlyMatchController extends Controller {
 		for (Player elt: this.menRanking.getPlayers())
 		{
 		    Label label = new Label(j + " " + elt.getName() + " -- points : " + elt.getPoints());
+			label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
 		    	public void handle(MouseEvent e) {
@@ -96,7 +98,7 @@ public class FriendlyMatchController extends Controller {
     @FXML
     public void returnButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",800, 550,new Controller(this.menRanking));
+            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking));
         }catch (Exception e){
             e.printStackTrace();
         }

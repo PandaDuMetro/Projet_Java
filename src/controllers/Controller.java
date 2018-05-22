@@ -38,7 +38,7 @@ public class Controller {
     @FXML
     public void matchButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)matchButton.getScene().getWindow(),"Scenes/FriendlyMatch.fxml",800, 550,new FriendlyMatchController(this.menRanking));
+            newSwitch.uploadNewScene((Stage)matchButton.getScene().getWindow(),"Scenes/FriendlyMatch.fxml",1000, 750,new FriendlyMatchController(this.menRanking));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class Controller {
     @FXML
     public void tournamentButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",800, 550,new TournamentController(this.menRanking, "test"));
+            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, "test"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -55,7 +55,7 @@ public class Controller {
     @FXML
     public void yearButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",800, 550,new YearController(this.menRanking));
+            newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class Controller {
     		loader2.setController(new RankingController(menRanking));
     		Parent root = loader2.load();
             newStage.setTitle("Ranking window");
-            newStage.setScene(new Scene(root, 800, 500));
+            newStage.setScene(new Scene(root, 1000, 650));
             root.getStylesheets().add("src/sample/CSS/style.css");
             newStage.show();
         }catch (Exception e){
