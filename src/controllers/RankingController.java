@@ -35,11 +35,8 @@ public class RankingController extends Controller {
 
     @FXML
     public void returnButtonAction(){
-        try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",800, 550,new Controller(this.menRanking));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    	Stage stage = (Stage) returnButton.getScene().getWindow();
+        stage.close();
     }
 
 }

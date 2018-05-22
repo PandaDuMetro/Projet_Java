@@ -46,4 +46,15 @@ public class Classement {
             System.out.println("id : "+elt.getId()+" Nom : "+elt.getName()+" Puissance : "+ elt.getPower()+" Endurance : "+ elt.getStamina()+" Points : "+ elt.getPoints());
         }
     }
+    
+    public Player getPlayerByName(String name) {
+    	System.out.println(name+"|");
+    	for(int i = 0; i < 128; i++) {
+    		if(name == this.players.get(i).getName()) {
+    	    	System.out.println("found : "+i);
+    			return this.players.get(i);
+    		}
+    	}
+    	return null;
+    }
 }

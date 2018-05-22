@@ -20,7 +20,7 @@
             <Font name="Noto Sans CJK JP Medium" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="returnButton" layoutX="625.0" layoutY="412.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
+      <Button fx:id="closeButton" layoutX="625.0" layoutY="412.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="50.0" prefWidth="150.0" text="Close" />
       <Label fx:id="winner" alignment="CENTER" layoutX="434.0" layoutY="273.0" prefHeight="50.0" prefWidth="150.0" text="Winner :">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="20.0" />

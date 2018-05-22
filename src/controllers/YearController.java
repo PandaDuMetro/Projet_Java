@@ -1,8 +1,12 @@
 package src.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import src.Classement;
+import src.Player;
 import src.sample.Switcher;
 
 public class YearController extends Controller {
@@ -14,9 +18,9 @@ public class YearController extends Controller {
     @FXML
     public javafx.scene.control.Button returnButton;
     public javafx.scene.control.Button rankingButton;
+    
 
-
-
+   
     @FXML
     public void returnButtonAction(){
         try{

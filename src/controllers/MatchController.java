@@ -3,18 +3,29 @@ package src.controllers;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import src.Classement;
+import src.Player;
 import src.sample.Switcher;
+import src.threads.Match;
+
 import java.awt.*;
 
 public class MatchController extends Controller {
+	
+	protected String id;
+	protected Match match;
 
-    public MatchController(Classement menRanking) {
+    public MatchController(Classement menRanking, String id) {
 		super(menRanking);
-		// TODO Auto-generated constructor stub
+		this.id = id;
+	}
+    
+    public MatchController(Classement menRanking, Match match) {
+		super(menRanking);
+		this.match = match;
 	}
 
 	@FXML
-    public javafx.scene.control.Button returnButton;
+    public javafx.scene.control.Button closeButton;
     public javafx.scene.control.Label winnerName;
     public javafx.scene.control.Label tournamentName;
     public javafx.scene.control.Label roundNumber;
@@ -36,12 +47,9 @@ public class MatchController extends Controller {
 
 
     @FXML
-    public void returnButtonAction(){
-        try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",800, 500,new Controller(this.menRanking));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public void closeButtonAction(){
+    	Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

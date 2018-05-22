@@ -6,10 +6,14 @@ import src.Classement;
 import src.sample.Switcher;
 
 public class TournamentController extends Controller {
+	
+	//a ajouter : mettre liste des matchs, ouvrir fenetre match quand click sur liste
+	
+	protected String name;
 
-    public TournamentController(Classement menRanking) {
+    public TournamentController(Classement menRanking, String name) {
 		super(menRanking);
-		// TODO Auto-generated constructor stub
+		this.name = name;
 	}
 
     @FXML

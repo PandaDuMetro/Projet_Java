@@ -4,12 +4,13 @@ import java.util.Random;
 
 import src.Player;
 import src.controllers.FriendlyMatchController;
+import src.controllers.MatchController;
 
 public class FriendlyMatch extends Thread { //semblable a match mais affichage dynamique
 	private Player player1;
 	private Player player2;
-	private int[] points = new int[6]; //contient tout les points de sets (2 à 2), pour la BDD
-	private int[] sets = new int[2];
+	private int[] points = {0,0,0,0,0,0}; //contient tout les points de sets (2 à 2), pour la BDD
+	private int[] sets = {0,0};
 	private Player winner;
 	private FriendlyMatchController controller;
 
@@ -40,34 +41,51 @@ public class FriendlyMatch extends Thread { //semblable a match mais affichage d
 	public void run() {
 		Random rand = new Random();
 		int set = 0;
-		while(this.sets[0] != 2 || this.sets[1] != 2 || this.player1.getStaminaMatch() < 1 || this.player2.getStaminaMatch() < 1) {
+		while(this.sets[0] != 2 && this.sets[1] != 2 && this.player1.getStaminaMatch() > 0 && this.player2.getStaminaMatch() > 0) {
 			while(this.setIsOver(this.points[set+0], this.points[set+1]) == 0) {
 				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)); //calcul valeurs
 				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100));
 				if(val1 > val2) { //joueur 1 gagne le point
 					this.points[set+0]++;
-					//affichage du point + sleep
 				}
 				else if(val2 > val1) { //joueur 2 gagne le point
 					this.points[set+1]++;
-					//affichage du point + sleep
 				}
 				this.player1.setStaminaMatch(this.player1.getStaminaMatch() - (this.player1.getPower()/100)); //retrait de stamina
 				this.player2.setStaminaMatch(this.player2.getStaminaMatch() - (this.player2.getPower()/100));
 			}
 			this.sets[this.setIsOver(this.points[set+0], this.points[set+1]) - 1]++;
-			set++;
-			//affichage set gagné + sleep()
+			set = set+2;
 		}
 		if(this.sets[0] == 2 || this.player2.getStaminaMatch() < 1) {
 			this.winner = this.player1;
-			//affichage vainqueur
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;
-			//affichage vainqueur
 		}
 		this.player1.setStaminaMatch(this.player1.getStamina()); //on remet les staminas a la normale
 		this.player2.setStaminaMatch(this.player2.getStamina());
 	}
+
+	public Player getPlayer1() {
+		return player1;
+	}
+
+	public void setPlayer1(Player player1) {
+		this.player1 = player1;
+	}
+
+	public Player getPlayer2() {
+		return player2;
+	}
+
+	public void setPlayer2(Player player2) {
+		this.player2 = player2;
+	}
+	
+	public int getPoint(int i) {
+		return this.points[i];
+	}
+	
+	
 }
