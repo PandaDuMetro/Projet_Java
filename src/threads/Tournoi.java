@@ -12,11 +12,13 @@ public class Tournoi extends Thread {
 	
 	private String name;
 	private List<Player> players;
+	private List<Player> fPlayers;
 	
-	public Tournoi(String name, ArrayList<Player> players) {
+	public Tournoi(String name, ArrayList<Player> players, ArrayList<Player> fplayers) {
 		super();
 		this.name = name;
 		this.players = players;
+		this.fPlayers = fPlayers;
 	}
 
 
@@ -33,7 +35,7 @@ public class Tournoi extends Thread {
 			//chaque ronde : tableau de matchs joueurs 2 à deux
 			List<Match> matchs = new ArrayList<Match>();
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) { //on crée les matchs avec deux joueurs
-				matchs.add(new Match(this.players.get(0), this.players.get(1), ronde));
+				matchs.add(new Match(this.players.get(0), this.players.get(1), ronde, false));
 				this.players.remove(0); //puis on retire les joueurs du tableau pour ne pas les réutiliser avant la prochaine ronde
 				this.players.remove(1);
 			}

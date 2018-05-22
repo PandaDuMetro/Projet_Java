@@ -39,6 +39,8 @@ public class FriendlyMatch extends Thread { //semblable a match mais affichage d
 
 	@Override
 	public void run() {
+		this.player1.setStaminaMatch(this.player1.getStamina());
+		this.player2.setStaminaMatch(this.player2.getStamina());
 		Random rand = new Random();
 		int set = 0;
 		while(this.sets[0] != 2 && this.sets[1] != 2 && this.player1.getStaminaMatch() > 0 && this.player2.getStaminaMatch() > 0) {

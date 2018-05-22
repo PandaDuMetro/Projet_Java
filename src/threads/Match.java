@@ -8,11 +8,12 @@ import src.services.MatchService;
 public class Match extends Thread {
 	private Player player1;
 	private Player player2;
-	private int[] points = new int[6]; //contient tout les points de sets (2 � 2), pour la BDD
+	private int[] points = new int[6]; //contient tout les points de sets (2 a 2), pour la BDD
 	private int[] sets = new int[2];
 	private Player winner;
 	private int nbRonde;
 	private String _id;
+	private boolean sex;
 
 	private MatchService service;
 
@@ -21,12 +22,13 @@ public class Match extends Thread {
 		this.service.getFromDb(id);
 	}
 
-	public Match(Player player1, Player player2, int nbRonde) {
+	public Match(Player player1, Player player2, int nbRonde, boolean sex) {
 		super();
 		this.player1 = player1;
 		this.player2 = player2;
 		this.nbRonde = nbRonde;
 		this.service = new MatchService(this);
+		this.sex = sex;
 	}
 	
 	public Player getWinner() {
@@ -47,9 +49,11 @@ public class Match extends Thread {
 
 	@Override
 	public void run() {
+		this.player1.setStaminaMatch(this.player1.getStamina());
+		this.player2.setStaminaMatch(this.player2.getStamina());
 		Random rand = new Random();
 		int set = 0;
-		while(this.sets[0] != 2 || this.sets[1] != 2 || this.player1.getStaminaMatch() < 1 || this.player2.getStaminaMatch() < 1) {
+		while(this.sets[0] != 2 && this.sets[1] != 2 && this.player1.getStaminaMatch() > 0 && this.player2.getStaminaMatch() > 0) {
 			while(this.setIsOver(this.points[set+0], this.points[set+1]) == 0) {
 				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)); //calcul valeurs
 				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100));
@@ -63,7 +67,7 @@ public class Match extends Thread {
 				this.player2.setStaminaMatch(this.player2.getStaminaMatch() - (this.player2.getPower()/100));
 			}
 			this.sets[this.setIsOver(this.points[set+0], this.points[set+1]) - 1]++;
-			set++;
+			set = set + 2;
 		}
 		if(this.sets[0] == 2 || this.player2.getStaminaMatch() < 1) {
 			this.winner = this.player1;
