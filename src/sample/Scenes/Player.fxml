@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="63.0" prefHeight="50.0" prefWidth="500.0" text="Player">
+      <Label alignment="CENTER" layoutX="150.0" layoutY="63.0" prefHeight="50.0" prefWidth="500.0" text="Player" fx:id="nameLabel">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="36.0" />
          </font>
@@ -23,16 +23,16 @@
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="242.0" layoutY="169.0" text="powerValue">
+      <Label layoutX="242.0" layoutY="169.0" text="powerValue" fx:id="powerLabel">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label layoutX="242.0" layoutY="223.0" text="staminaValue">
+      <Label layoutX="242.0" layoutY="223.0" text="staminaValue" fx:id="staminaLabel">
          <font>
             <Font size="14.0" />
          </font></Label>
       <Button fx:id="returnButton" layoutX="575.0" layoutY="449.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
-      <ScrollPane layoutX="119.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" />
+      <ScrollPane layoutX="119.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" fx:id="matchBox"/>
       <Label layoutX="184.0" layoutY="275.0" text="Matchs :">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
@@ -43,7 +43,7 @@
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="650.0" layoutY="192.0" text="RankingValue">
+      <Label layoutX="650.0" layoutY="192.0" text="RankingValue" fx:id="rankingLabel">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -52,7 +52,7 @@
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="677.0" layoutY="296.0" text="rank">
+      <Label layoutX="677.0" layoutY="296.0" text="rank" fx:id="rankLabel">
          <font>
             <Font size="14.0" />
          </font></Label>

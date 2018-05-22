@@ -35,7 +35,7 @@ public class Tournoi extends Thread {
 			//chaque ronde : tableau de matchs joueurs 2 a deux
 			List<Match> matchs = new ArrayList<Match>();
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) { //on cree les matchs avec deux joueurs
-				matchs.add(new Match(this.players.get(0), this.players.get(1), ronde, false));
+				matchs.add(new Match(this.players.get(0), this.players.get(1), ronde, false, this.name));
 				this.players.remove(0); //puis on retire les joueurs du tableau pour ne pas les reutiliser avant la prochaine ronde
 				this.players.remove(1);
 			}

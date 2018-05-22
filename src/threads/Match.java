@@ -14,6 +14,7 @@ public class Match extends Thread {
 	private int nbRonde;
 	private String _id;
 	private boolean sex;
+	private String nameTournament;
 
 	private MatchService service;
 
@@ -22,13 +23,14 @@ public class Match extends Thread {
 		this.service.getFromDb(id);
 	}
 
-	public Match(Player player1, Player player2, int nbRonde, boolean sex) {
+	public Match(Player player1, Player player2, int nbRonde, boolean sex, String nameTournament) {
 		super();
 		this.player1 = player1;
 		this.player2 = player2;
 		this.nbRonde = nbRonde;
 		this.service = new MatchService(this);
 		this.sex = sex;
+		this.nameTournament = nameTournament;
 	}
 	
 	public Player getWinner() {
