@@ -72,7 +72,7 @@ router.post('/isinitiated', (req, res, next) => {
   })
 });
 
-router.post('/remiseazero', (req, res, body) => {
+router.get('/remiseazero', (req, res, body) => {
   Player.remove({}, (err, data) => {
     if (err) throw err;
     res.json(data);
