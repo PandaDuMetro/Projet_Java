@@ -49,7 +49,7 @@ public class YearController extends Controller {
     		loader2.setController(new RankingController(this.menRanking,this.womenRanking));
     		Parent root = loader2.load();
             newStage.setTitle("Ranking window");
-            newStage.setScene(new Scene(root, 800, 500));
+            newStage.setScene(new Scene(root, 1000, 750));
             root.getStylesheets().add("src/sample/CSS/style.css");
             newStage.show();
         }catch (Exception e){
@@ -60,7 +60,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn1Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament1.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi1"));
         }catch (Exception e){
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn2Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament2.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi2"));
         }catch (Exception e){
             e.printStackTrace();
@@ -80,7 +80,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn3Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament3.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi3"));
         }catch (Exception e){
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn4Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament4.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi4"));
         }catch (Exception e){
             e.printStackTrace();
@@ -100,7 +100,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn5Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament5.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi5"));
         }catch (Exception e){
             e.printStackTrace();
@@ -110,7 +110,7 @@ public class YearController extends Controller {
     @FXML
     public void tourn6Open() {
     	try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+            newSwitch.uploadNewScene((Stage)tournament6.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi 6"));
         }catch (Exception e){
             e.printStackTrace();
