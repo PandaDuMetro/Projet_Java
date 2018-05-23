@@ -90,7 +90,12 @@ public class FriendlyMatchController extends Controller {
 		    		self.player2 = self.menRanking.getPlayers().get(
 		    				Integer.parseInt(
 		    						label.getText().substring(0,label.getText().indexOf(" ")))-1);
-		    		player2Name.setText(self.player2.getName());
+		    		if(self.player1 != self.player2) {
+		    			player2Name.setText(self.player2.getName());
+		    		}
+		    		else {
+		    			self.player2 = null;
+		    		}
 		    	}
 		    });
 		    content2.getChildren().add(label);

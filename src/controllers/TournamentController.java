@@ -39,7 +39,7 @@ public class TournamentController extends Controller {
     	VBox content = new VBox();
 		roundPane.setContent(content);
 		for(int i = 1; i < 8; i++) {
-			Label label = new Label("Round nb "+ i);
+			Label label = new Label("Round number "+ i);
 		    label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override

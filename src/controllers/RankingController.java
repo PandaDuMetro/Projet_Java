@@ -24,6 +24,7 @@ public class RankingController extends Controller {
 
 	@FXML
     public javafx.scene.control.Button returnButton;
+	public javafx.scene.control.Button closeButton;
     public javafx.scene.control.Button resetRanksButton;
 	public ScrollPane menRankingPane;
 	public ScrollPane womenRankingPane;
@@ -35,6 +36,11 @@ public class RankingController extends Controller {
 	public ScrollPane matchBox;
 
 	public void initialize() {
+		this.fillPane();
+	}
+	
+	
+	public void fillPane() {
 		VBox content = new VBox();
 		menRankingPane.setContent(content);
 		int i = 1; 
@@ -113,13 +119,27 @@ public class RankingController extends Controller {
 	}
 
 	@FXML
-	public  void resetRanksButtonAction(){
-		System.out.println("reset");
+	public  void resetRanksButtonAction(){ //met plein d'erreurs voir pourquoi
+		for (Player elt: this.menRanking.getPlayers()) {
+            elt.setRank(1);
+        }
+		for (Player elt: this.womenRanking.getPlayers()) {
+            elt.setRank(1);
+        }
+		menRankingPane.setContent(null);
+		womenRankingPane.setContent(null);
+		this.fillPane();
 	}
 
     @FXML
     public void returnButtonAction(){
     	Stage stage = (Stage) returnButton.getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML
+    public void closeButtonAction(){
+    	Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 

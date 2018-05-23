@@ -8,7 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.Classement;
+import src.Player;
 import src.sample.Switcher;
+import src.threads.Annee;
+import src.threads.Tournoi;
 
 
 public class Controller {
@@ -49,7 +52,9 @@ public class Controller {
     @FXML
     public void tournamentButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, this.womenRanking, "test"));
+        	Tournoi tournament = new Tournoi("tournoi0",this.menRanking, this.womenRanking);
+        	tournament.start();
+            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -57,6 +62,8 @@ public class Controller {
     @FXML
     public void yearButtonAction(){
         try{
+        	Annee year = new Annee(this.menRanking, this.womenRanking);
+        	year.start();
             newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();

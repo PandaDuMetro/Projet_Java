@@ -75,7 +75,7 @@ public class Match extends Thread {
 			this.winner = this.player1;
 			this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
-					(this.sets[0] - this.sets[1])); 						//calcul des nouveaux points au classement
+					(this.sets[0] - this.sets[1]));						//calcul des nouveaux points au classement
 			this.service.addToDb();
 			//requete victoire match
 		}

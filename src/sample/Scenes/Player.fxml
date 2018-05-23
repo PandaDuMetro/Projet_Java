@@ -31,7 +31,7 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button fx:id="returnButton" layoutX="575.0" layoutY="449.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
+      <Button fx:id="closeButton" layoutX="575.0" layoutY="449.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="50.0" prefWidth="150.0" text="Close" />
       <ScrollPane fx:id="matchBox" layoutX="119.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="184.0" layoutY="275.0" text="Matchs :">
          <font>

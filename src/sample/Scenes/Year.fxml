@@ -12,12 +12,12 @@
             <Font name="Noto Sans CJK JP Medium" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="111.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 1" />
-      <Button layoutX="111.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 3" />
-      <Button layoutX="111.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 5" />
-      <Button layoutX="675.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 2" />
-      <Button layoutX="675.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 4" />
-      <Button layoutX="675.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 6" />
+      <Button layoutX="111.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 1" fx:id="tournament1" onAction="#tourn1Open"/>
+      <Button layoutX="111.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 3" fx:id="tournament2" onAction="#tourn2Open"/>
+      <Button layoutX="111.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 5" fx:id="tournament3" onAction="#tourn3Open"/>
+      <Button layoutX="675.0" layoutY="146.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 2" fx:id="tournament4" onAction="#tourn4Open"/>
+      <Button layoutX="675.0" layoutY="300.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 4" fx:id="tournament5" onAction="#tourn5Open"/>
+      <Button layoutX="675.0" layoutY="439.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Tournament 6" fx:id="tournament6" onAction="#tourn6Open"/>
       <Button fx:id="rankingButton" layoutX="275.0" layoutY="573.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="75.0" prefWidth="200.0" text="Ranking" />
       <Button fx:id="returnButton" layoutX="550.0" layoutY="573.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="75.0" prefWidth="200.0" text="Return" />
    </children>
