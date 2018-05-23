@@ -19,9 +19,9 @@ public class Player extends PlayerService {
     }
 
 
-    public void setRank(int points) {
+    public void setRank(float points) {
 
-        this.points = points;
+        this.points = Math.round(points);
         this.updateDb();
     }
 

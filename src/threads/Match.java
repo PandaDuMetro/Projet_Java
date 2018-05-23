@@ -79,10 +79,11 @@ public class Match extends Thread {
 			if(diff == 0) {
 				diff = 1;
 			}
-			this.player1.setRank((this.nbRonde/7)*
-				(this.player2.getPoints()/this.player1.getPoints())*
+			this.player1.setRank(((float)this.nbRonde/7)*
+				((float)this.player2.getPoints()/this.player1.getPoints())*
 				(diff));						//calcul des nouveaux points au classement
 			this.service.addToDb();
+			this.toString();
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;
@@ -90,10 +91,11 @@ public class Match extends Thread {
 			if(diff == 0) {
 				diff = 1;
 			}
-			this.player2.setRank((this.nbRonde/7)*
-					(this.player1.getPoints()/this.player2.getPoints())*
+			this.player2.setRank(((float)this.nbRonde/7)*
+					((float)this.player1.getPoints()/this.player2.getPoints())*
 					(diff));						//calcul des nouveaux points au classement
 			this.service.addToDb();
+			this.toString();
 		}
 		this.player1.setStaminaMatch(this.player1.getStamina()); //on remet les staminas a la normale
 		this.player2.setStaminaMatch(this.player2.getStamina());
