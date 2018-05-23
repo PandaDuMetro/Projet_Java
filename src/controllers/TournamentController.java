@@ -61,7 +61,7 @@ public class TournamentController extends Controller {
 		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     	VBox content = new VBox();
 		roundPane.setContent(content);
-		for(int i = 1; i < 8; i++) {
+		for(int i = 1; i < 7; i++) {
 			Label label = new Label("Round number "+ i);
 		    label.getStyleClass().add("ScrollPaneLabel");
 		    int j = i;
@@ -74,10 +74,11 @@ public class TournamentController extends Controller {
 		    		MatchService matchSer = new MatchService(self.sex, self.name, j);
 		    		self.matchs = (ArrayList<Match>) matchSer.getMany();
 		    		for(int k = 1; k <= self.matchs.size() ; k++) {
-	        			Label label2 = new Label(k+" : "+self.matchs.get(k-1).get_id());
-	        			label.getStyleClass().add("ScrollPaneLabel");
+	        			Label label2 = new Label(k+" : "+self.matchs.get(k-1).getPlayer1().getName()+" vs "+
+	        					self.matchs.get(k-1).getPlayer2().getName());
+	        			label2.getStyleClass().add("ScrollPaneLabel");
 	        			int l = k-1;
-	        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	        		    label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	        		    	@Override
 	        		    	public void handle(MouseEvent e) {
 	        		    		try{

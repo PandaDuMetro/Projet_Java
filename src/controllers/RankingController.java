@@ -186,10 +186,11 @@ public class RankingController extends Controller {
 		        		MatchService matchSer = new MatchService(player.getName());
 		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
 		        		for(int k = 1; k <= matchs.size() ; k++) {
-		        			Label label2 = new Label(k+" : "+matchs.get(k-1).get_id());
-		        			label.getStyleClass().add("ScrollPaneLabel");
+		        			Label label2 = new Label(k+" : "+matchs.get(k-1).getPlayer1().getName()+" vs "+
+		        					matchs.get(k-1).getPlayer2().getName());
+		        			label2.getStyleClass().add("ScrollPaneLabel");
 		        			int l = k-1;
-		        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		        		    label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		        		    	@Override
 		        		    	public void handle(MouseEvent e) {
 		        		    		try{
