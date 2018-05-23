@@ -11,10 +11,10 @@ public class MatchService extends BddService {
 
     private Match match;
 
-    public MatchService(Boolean sex, String nameTournament, int ronde){
-        this.executePost("http://localhost:8080/matchs/getbytrs", "{\"sex\": \""+sex+
-                ",\"nameTournament\": \""+nameTournament+ "\",\"ronde: \""+ronde+"\" }");
 
+    public MatchService(Boolean sex, String nameTournament, int ronde){
+        this.executePost("http://localhost:8080/matchs/getbytrs", "{\"sex\": "+sex+
+                ",\"nameTournament\": \""+nameTournament+ "\",\"ronde\" : "+ronde+" }");
     }
 
     public MatchService(String name){

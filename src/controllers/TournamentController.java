@@ -53,7 +53,7 @@ public class TournamentController extends Controller {
 
     
     public void initialize() {
-    	MatchService matchWinner = new MatchService(this.sex, this.name, 7);
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 6);
 		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
 		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     	VBox content = new VBox();

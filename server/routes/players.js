@@ -57,6 +57,7 @@ router.post('/updatepoints', (req, res, next) => {
       player.histPoints.push(req.body.points);
       player.save(err => {
         if(err) throw err;
+        res.sendStatus(200);
       });
   });
 });

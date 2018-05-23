@@ -11,7 +11,7 @@ router.post('/newmatch', (req, res, next) => {
     player2: req.body.player2,
     winner: req.body.winner,
     nameTournament: req.body.nameTournament,
-    ronde: req.body.ronde,
+    ronde: req.body.nbRonde,
     points: req.body.points,
     sets: req.body.sets,
     sex: req.body.sex
@@ -36,8 +36,10 @@ router.post('/getmatch', (req, res, next) => {
 });
 
 router.post('/getbytrs', (req, res, next) => {
+  console.log(req.body);
   var query = {sex: req.body.sex, nameTournament: req.body.nameTournament, ronde: req.body.ronde}
   Match.find(query, (err, data) => {
+    console.log(data);
     if(err) throw err;
     res.json(data);
   });

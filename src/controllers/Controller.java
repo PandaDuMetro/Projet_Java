@@ -60,7 +60,8 @@ public class Controller {
         	catch(Exception e) {
         		e.printStackTrace();
         	}
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
+            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
         }catch (Exception e){
             e.printStackTrace();
         }
