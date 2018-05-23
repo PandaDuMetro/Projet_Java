@@ -32,6 +32,9 @@
          </font></Label>
       <ScrollPane fx:id="roundPane" layoutX="205.0" layoutY="127.0" prefHeight="75.0" prefWidth="200.0" />
       <Button fx:id="sexButton" layoutX="775.0" layoutY="45.0" mnemonicParsing="false" onAction="#changeSex" prefHeight="50.0" prefWidth="150.0" text="Change Sex" />
-      <Label fx:id="sexLabel" layoutX="775.0" layoutY="111.0" text="Men" />
+      <Label fx:id="sexLabel" layoutX="831.0" layoutY="117.0" text="Men">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

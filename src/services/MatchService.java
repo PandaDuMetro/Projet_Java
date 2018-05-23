@@ -14,7 +14,7 @@ public class MatchService extends BddService {
 
     public MatchService(Boolean sex, String nameTournament, int ronde){
         this.executePost("http://localhost:8080/matchs/getbytrs", "{\"sex\": "+sex+
-                ",\"nameTournament\": \""+nameTournament+ "\",\"ronde\" : "+ronde+" }");
+                ",\"nameTournament\": \""+nameTournament+ "\",\"nbRonde\" : "+ronde+" }");
     }
 
     public MatchService(String name){

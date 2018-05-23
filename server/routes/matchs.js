@@ -11,7 +11,7 @@ router.post('/newmatch', (req, res, next) => {
     player2: req.body.player2,
     winner: req.body.winner,
     nameTournament: req.body.nameTournament,
-    ronde: req.body.nbRonde,
+    nbRonde: req.body.nbRonde,
     points: req.body.points,
     sets: req.body.sets,
     sex: req.body.sex
@@ -57,10 +57,11 @@ router.post('/getbyname', (req, res, next) => {
 
 
 router.post('/remiseazero', (req, res, body) => {
-  Match.remove({}, (err, res) => {
+  console.log("supprimer les matchs");
+  Match.remove({}, (err, data) => {
     if (err) throw err;
     res.sendStatus(200);
-    console.log(res);
+    console.log(data);
   })
 });
 

@@ -15,7 +15,7 @@ const MatchSchema = mongoose.Schema({
   nameTournament: {
     type: String
   },
-  ronde: {
+  nbRonde: {
     type: Number
   },
   sex: {
