@@ -51,7 +51,13 @@ router.post('/getall', (req, res, next) => {
 
 router.post('/updatepoints', (req, res, next) => {
   console.log('update points '+req.body)
-  Player.update({_id: req.body.id}, {points: req.body.points});
+  Player.findById(req.body.id, (err, player) => {
+      player.points = req.body.points;
+      player.histPoints.push(req.body.points);
+      player.save(err => {
+        if(err) throw err;
+      });
+  });
 });
 
 router.post('/isinitiated', (req, res, next) => {
