@@ -96,16 +96,16 @@ public class RankingController extends Controller {
 		        			Label label1 = new Label(""+histPoints[j-1]);
 		        			content1.getChildren().add(label1);
 		        		}
-		        		VBox content2 = new VBox();
-		        		matchBox.setContent(content2);
+		        		VBox content3 = new VBox();
+		        		matchBox.setContent(content3);
 		        		MatchService matchSer = new MatchService(player.getName());
 		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
 		        		for(int k = 1; k <= matchs.size() ; k++) {
 		        			Label label2 = new Label(k+" : "+matchs.get(k-1).getPlayer1().getName()+" vs "+
 		        					matchs.get(k-1).getPlayer2().getName());
-		        			label.getStyleClass().add("ScrollPaneLabel");
+		        			label2.getStyleClass().add("ScrollPaneLabel");
 		        			int l = k-1;
-		        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		        		    label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		        		    	@Override
 		        		    	public void handle(MouseEvent e) {
 		        		    		try{
@@ -123,7 +123,7 @@ public class RankingController extends Controller {
 		        		        	}
 		        		    	}
 		        		    });
-		        			content2.getChildren().add(label2);
+		        			content3.getChildren().add(label2);
 		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();
@@ -168,8 +168,8 @@ public class RankingController extends Controller {
 		        			Label label1 = new Label(""+histPoints[j-1]);
 		        			content1.getChildren().add(label1);
 		        		}
-		        		VBox content3 = new VBox();
-		        		matchBox.setContent(content3);
+		        		VBox content4 = new VBox();
+		        		matchBox.setContent(content4);
 		        		MatchService matchSer = new MatchService(player.getName());
 		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
 		        		for(int k = 1; k <= matchs.size() ; k++) {
@@ -195,7 +195,7 @@ public class RankingController extends Controller {
 		        		        	}
 		        		    	}
 		        		    });
-		        			content3.getChildren().add(label2);
+		        			content4.getChildren().add(label2);
 		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();
