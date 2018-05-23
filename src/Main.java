@@ -28,7 +28,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1000, 750));
         root.getStylesheets().add("src/sample/CSS/style.css");
         primaryStage.show();
-        System.out.println(menRanking.getPlayers().get(0).getPoints());
     }
 
 	public static void main(String [ ] args) {

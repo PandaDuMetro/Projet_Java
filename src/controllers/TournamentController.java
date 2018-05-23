@@ -148,5 +148,8 @@ public class TournamentController extends Controller {
     	else {
     		sexLabel.setText("Women");
     	}
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 7);
+		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
+		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     }
 }

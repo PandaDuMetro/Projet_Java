@@ -50,9 +50,9 @@ public class Tournoi extends Thread {
 			while(!exec.isTerminated()) {} //attente des threads
 			System.out.println("Ronde terminée");
 			//on recupere les vainqueurs pour la prochaine ronde
-			matchs.clear();
 			menPlayers.clear();
-			menPlayers = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList()); 
+			menPlayers = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList());
+			matchs.clear();
 		}
 		//puis pour les femmes : 
 		List<Player> womenPlayers = this.fPlayers.getPlayers();
@@ -72,9 +72,9 @@ public class Tournoi extends Thread {
 			exec.shutdown();
 			while(!exec.isTerminated()) {}
 			System.out.println("ronde f terminée");
-			matchs.clear();
 			womenPlayers.clear();
 			womenPlayers = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList()); 
+			matchs.clear();
 		}
 		System.out.println("Tournoi terminé");
 	}
