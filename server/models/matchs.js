@@ -12,11 +12,14 @@ const MatchSchema = mongoose.Schema({
   winner: {
     type: String
   },
-  tournois: {
+  nameTournament: {
     type: String
   },
   ronde: {
     type: Number
+  },
+  sex: {
+    type: Boolean
   },
   points: [],
   sets: []

@@ -1,13 +1,9 @@
 package src.services;
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 import src.Player;
 
-import java.lang.reflect.Type;
-import java.util.List;
-
-public class PlayerService extends BddService {
+public abstract class PlayerService extends BddService {
 
     protected int stamina;
     protected int staminaMatch;

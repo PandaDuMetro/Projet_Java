@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 public abstract class ClassementService extends BddService {
 
@@ -18,14 +19,18 @@ public abstract class ClassementService extends BddService {
         if(!this.isInitiated()){
             String thisLine;
             File f = new File("src/players.txt");
+            int id = 1;
+            boolean sex = false;
             try{
                 BufferedReader br = new BufferedReader(new FileReader(f));
                 while((thisLine = br.readLine()) != null){
                     String[] carac = thisLine.split(":");
-                    Player tmp = new Player(carac[0], Integer.parseInt(carac[1]),
-                            Integer.parseInt(carac[2]), Boolean.getBoolean(carac[3]));
+                    if(id <= 128){ sex = false;}
+                    else { sex = true; }
+                    Player tmp = new Player(carac[0], rand(),rand(), sex);
                     //System.out.println(tmp.toString());
                     tmp.addToDb();
+                    id++;
                 }
             }
             catch(IOException e){
@@ -66,5 +71,10 @@ public abstract class ClassementService extends BddService {
         public String getMsg() {
             return msg;
         }
+    }
+
+    public static int rand() {
+        Random rand = new Random();
+        return rand.nextInt(100) + 1;
     }
 }

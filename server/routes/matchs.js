@@ -10,10 +10,11 @@ router.post('/newmatch', (req, res, next) => {
     player1: req.body.player1,
     player2: req.body.player2,
     winner: req.body.winner,
-    tournois: req.body.tournois,
+    nameTournament: req.body.nameTournament,
     ronde: req.body.ronde,
     points: req.body.points,
-    sets: req.body.sets
+    sets: req.body.sets,
+    sex: req.body.sex
   });
   Match.addMatch(match, (err, match) => {
     if(err) {
@@ -33,6 +34,13 @@ router.post('/getmatch', (req, res, next) => {
     } else {
       res.json(match);
     }
+  })
+});
+
+router.get('/remiseazero', (req, res, body) => {
+  Match.remove({}, (err, res) => {
+    if (err) throw err;
+    console.log(res);
   })
 });
 
