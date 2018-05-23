@@ -9,6 +9,7 @@ import src.controllers.Controller;
     public class Switcher {
 
         public void uploadNewScene(Stage newStage, String fileName, int width, int height, Controller controller) throws Exception{
+            System.out.println("Prout");
         	FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
     		loader.setController(controller);
     		Parent root = loader.load();
