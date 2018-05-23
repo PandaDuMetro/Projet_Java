@@ -82,29 +82,15 @@ public class TournamentController extends Controller {
 	        		    	@Override
 	        		    	public void handle(MouseEvent e) {
 	        		    		try{
-	        		    			Match match = new Match(self.matchs.get(l).get_id());
+	        		    			Match match = new Match(matchs.get(l).get_id());
 	        		    			Stage newStage = new Stage();
 	        		        		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Match.fxml"));
-	        		    			loader2.setController(this);
+	        		    			loader2.setController(new MatchController(self.menRanking, self.womenRanking, match));
 	        		    			Parent root = loader2.load();
-	        		            	newStage.setTitle("Match window");
-	        		            	newStage.setScene(new Scene(root, 800, 500));
-	        		            	root.getStylesheets().add("src/sample/CSS/style.css");
-	        		            	newStage.show();
-	        		            	winnerName.setText("TBD");
-	        		            	tournamentName.setText("Match Amical");
-	        		            	roundNumber.setText("0");
-	        		            	namePlayer1.setText(match.getPlayer1().getName());
-	        		            	namePlayer2.setText(match.getPlayer2().getName());
-	        		            	firstPlayerName.setText(match.getPlayer1().getName());
-	        		            	secondPlayerName.setText(match.getPlayer2().getName());
-	        		            	firstPlayerScoreSet1.setText(""+match.getPoints(0));
-	        		            	secondPlayerScoreSet1.setText(""+match.getPoints(1));
-	        		            	firstPlayerScoreSet2.setText(""+match.getPoints(2));
-	        		            	secondPlayerScoreSet2.setText(""+match.getPoints(3));
-	        		            	firstPlayerScoreSet3.setText(""+match.getPoints(4));
-	        		            	secondPlayerScoreSet3.setText(""+match.getPoints(5));
-	        		            	winnerName.setText(match.getWinner().getName());
+	        		    			newStage.setTitle("Player window");
+	        		                newStage.setScene(new Scene(root, 1000, 750));
+	        		                root.getStylesheets().add("src/sample/CSS/style.css");
+	        		                newStage.show();
 	        		        	}catch (Exception ex){
 	        		        		ex.printStackTrace();
 	        		        	}

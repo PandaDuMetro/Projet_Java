@@ -54,7 +54,7 @@ public class MatchController extends Controller {
     }
 
     @FXML
-    private void initialize() {
+    public void initialize() {
         winnerName.setText(this.match.getWinner().getName());
         tournamentName.setText(this.match.getNameTournament());
         roundNumber.setText(this.match.getNbRonde()+"");
