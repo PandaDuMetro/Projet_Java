@@ -6,12 +6,10 @@ public class Player extends PlayerService {
 
 
     public Player(String name) {
-        super();
         this.getFromDb(name);
     }
 
     public Player( String name, int stamina, int power, boolean sex) {
-        super();
         this.stamina = stamina;
         this.staminaMatch = stamina;
         this.power = power;

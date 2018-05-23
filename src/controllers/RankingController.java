@@ -1,5 +1,7 @@
 package src.controllers;
 
+import java.util.ArrayList;
+
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,9 @@ import javafx.stage.Stage;
 import src.Classement;
 import src.Player;
 import src.sample.Switcher;
+import src.services.MatchService;
+import src.threads.FriendlyMatch;
+import src.threads.Match;
 
 public class RankingController extends Controller {
 	
@@ -35,6 +40,19 @@ public class RankingController extends Controller {
 	public javafx.scene.control.Label nameLabel;
 	public ScrollPane matchBox;
 	public ScrollPane rankingPane;
+	public javafx.scene.control.Label winnerName;
+    public javafx.scene.control.Label tournamentName;
+    public javafx.scene.control.Label roundNumber;
+    public javafx.scene.control.Label firstPlayerScoreSet1;
+    public javafx.scene.control.Label firstPlayerScoreSet2;
+    public javafx.scene.control.Label firstPlayerScoreSet3;
+    public javafx.scene.control.Label secondPlayerScoreSet1;
+    public javafx.scene.control.Label secondPlayerScoreSet2;
+    public javafx.scene.control.Label secondPlayerScoreSet3;
+    public javafx.scene.control.Label namePlayer1;
+    public javafx.scene.control.Label namePlayer2;
+    public javafx.scene.control.Label secondPlayerName;
+    public javafx.scene.control.Label firstPlayerName;
 
 	public void initialize() {
 		this.fillPane();
@@ -77,6 +95,48 @@ public class RankingController extends Controller {
 		        		for(int j = 1; j <= histPoints.length ; j++) {
 		        			Label label1 = new Label(j+" : "+histPoints[j-1]);
 		        			content1.getChildren().add(label1);
+		        		}
+		        		VBox content2 = new VBox();
+		        		matchBox.setContent(content2);
+		        		MatchService matchSer = new MatchService(player.getName());
+		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
+		        		for(int k = 1; k <= matchs.size() ; k++) {
+		        			Label label2 = new Label(k+" : "+matchs.get(k-1).get_id());
+		        			label.getStyleClass().add("ScrollPaneLabel");
+		        			int l = k-1;
+		        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		        		    	@Override
+		        		    	public void handle(MouseEvent e) {
+		        		    		try{
+		        		    			Match match = new Match(matchs.get(l).get_id());
+		        		    			Stage newStage = new Stage();
+		        		        		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Match.fxml"));
+		        		    			loader2.setController(this);
+		        		    			Parent root = loader2.load();
+		        		            	newStage.setTitle("Match window");
+		        		            	newStage.setScene(new Scene(root, 800, 500));
+		        		            	root.getStylesheets().add("src/sample/CSS/style.css");
+		        		            	newStage.show();
+		        		            	winnerName.setText("TBD");
+		        		            	tournamentName.setText("Match Amical");
+		        		            	roundNumber.setText("0");
+		        		            	namePlayer1.setText(match.getPlayer1().getName());
+		        		            	namePlayer2.setText(match.getPlayer2().getName());
+		        		            	firstPlayerName.setText(match.getPlayer1().getName());
+		        		            	secondPlayerName.setText(match.getPlayer2().getName());
+		        		            	firstPlayerScoreSet1.setText(""+match.getPoints(0));
+		        		            	secondPlayerScoreSet1.setText(""+match.getPoints(1));
+		        		            	firstPlayerScoreSet2.setText(""+match.getPoints(2));
+		        		            	secondPlayerScoreSet2.setText(""+match.getPoints(3));
+		        		            	firstPlayerScoreSet3.setText(""+match.getPoints(4));
+		        		            	secondPlayerScoreSet3.setText(""+match.getPoints(5));
+		        		            	winnerName.setText(match.getWinner().getName());
+		        		        	}catch (Exception ex){
+		        		        		ex.printStackTrace();
+		        		        	}
+		        		    	}
+		        		    });
+		        			content1.getChildren().add(label2);
 		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();

@@ -15,7 +15,7 @@ public class Tournoi extends Thread {
 	private Classement players;
 	private Classement fPlayers;
 	
-	public Tournoi(String name, Classement players, Classement fplayers) {
+	public Tournoi(String name, Classement players, Classement fPlayers) {
 		super();
 		this.name = name;
 		this.players = players;

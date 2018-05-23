@@ -9,7 +9,6 @@ import java.net.URL;
 
 public abstract class BddService {
 
-    protected String url;
     protected String serverResponse;
 
 

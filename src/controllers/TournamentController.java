@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 import src.Classement;
 import src.Player;
 import src.sample.Switcher;
+import src.services.MatchService;
+import src.threads.Match;
+import java.util.ArrayList;
 
 public class TournamentController extends Controller {
 	
@@ -33,18 +36,78 @@ public class TournamentController extends Controller {
     public javafx.scene.control.Button sexButton;
     public javafx.scene.control.Label sexLabel;
     public ScrollPane roundPane;
+    public javafx.scene.control.Label winnerName;
+    public javafx.scene.control.Label tournamentName;
+    public javafx.scene.control.Label roundNumber;
+    public javafx.scene.control.Label firstPlayerScoreSet1;
+    public javafx.scene.control.Label firstPlayerScoreSet2;
+    public javafx.scene.control.Label firstPlayerScoreSet3;
+    public javafx.scene.control.Label secondPlayerScoreSet1;
+    public javafx.scene.control.Label secondPlayerScoreSet2;
+    public javafx.scene.control.Label secondPlayerScoreSet3;
+    public javafx.scene.control.Label namePlayer1;
+    public javafx.scene.control.Label namePlayer2;
+    public javafx.scene.control.Label secondPlayerName;
+    public javafx.scene.control.Label firstPlayerName;
+    public javafx.scene.control.Label winnerLabel;
 
     
     public void initialize() {
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 7);
+		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
+		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     	VBox content = new VBox();
 		roundPane.setContent(content);
 		for(int i = 1; i < 8; i++) {
 			Label label = new Label("Round number "+ i);
 		    label.getStyleClass().add("ScrollPaneLabel");
+		    int j = i;
+		    TournamentController self = this;
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
 		    	public void handle(MouseEvent e) {
-		    		
+		    		VBox content2 = new VBox();
+		    		roundPane.setContent(content2);
+		    		MatchService matchSer = new MatchService(self.sex, self.name, j);
+		    		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
+		    		for(int k = 1; k <= matchs.size() ; k++) {
+	        			Label label2 = new Label(k+" : "+matchs.get(k-1).get_id());
+	        			label.getStyleClass().add("ScrollPaneLabel");
+	        			int l = k-1;
+	        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	        		    	@Override
+	        		    	public void handle(MouseEvent e) {
+	        		    		try{
+	        		    			Match match = new Match(matchs.get(l).get_id());
+	        		    			Stage newStage = new Stage();
+	        		        		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Match.fxml"));
+	        		    			loader2.setController(this);
+	        		    			Parent root = loader2.load();
+	        		            	newStage.setTitle("Match window");
+	        		            	newStage.setScene(new Scene(root, 800, 500));
+	        		            	root.getStylesheets().add("src/sample/CSS/style.css");
+	        		            	newStage.show();
+	        		            	winnerName.setText("TBD");
+	        		            	tournamentName.setText("Match Amical");
+	        		            	roundNumber.setText("0");
+	        		            	namePlayer1.setText(match.getPlayer1().getName());
+	        		            	namePlayer2.setText(match.getPlayer2().getName());
+	        		            	firstPlayerName.setText(match.getPlayer1().getName());
+	        		            	secondPlayerName.setText(match.getPlayer2().getName());
+	        		            	firstPlayerScoreSet1.setText(""+match.getPoints(0));
+	        		            	secondPlayerScoreSet1.setText(""+match.getPoints(1));
+	        		            	firstPlayerScoreSet2.setText(""+match.getPoints(2));
+	        		            	secondPlayerScoreSet2.setText(""+match.getPoints(3));
+	        		            	firstPlayerScoreSet3.setText(""+match.getPoints(4));
+	        		            	secondPlayerScoreSet3.setText(""+match.getPoints(5));
+	        		            	winnerName.setText(match.getWinner().getName());
+	        		        	}catch (Exception ex){
+	        		        		ex.printStackTrace();
+	        		        	}
+	        		    	}
+	        		    });
+	        			content2.getChildren().add(label2);
+		    		}
 		    	}
 		    });
 		    content.getChildren().add(label);
