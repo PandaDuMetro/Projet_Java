@@ -111,7 +111,7 @@ public class YearController extends Controller {
     public void tourn6Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament6.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi 6"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi6"));
         }catch (Exception e){
             e.printStackTrace();
         }
