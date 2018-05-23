@@ -36,6 +36,7 @@ public class TournamentController extends Controller {
     public javafx.scene.control.Button sexButton;
     public javafx.scene.control.Label sexLabel;
     public ScrollPane roundPane;
+    public ScrollPane matchPane;
     public javafx.scene.control.Label winnerName;
     public javafx.scene.control.Label tournamentName;
     public javafx.scene.control.Label roundNumber;
@@ -53,7 +54,7 @@ public class TournamentController extends Controller {
 
     
     public void initialize() {
-    	MatchService matchWinner = new MatchService(this.sex, this.name, 7);
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 6);
 		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
 		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     	VBox content = new VBox();
@@ -67,7 +68,7 @@ public class TournamentController extends Controller {
 		    	@Override
 		    	public void handle(MouseEvent e) {
 		    		VBox content2 = new VBox();
-		    		roundPane.setContent(content2);
+		    		matchPane.setContent(content2);
 		    		MatchService matchSer = new MatchService(self.sex, self.name, j);
 		    		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
 		    		for(int k = 1; k <= matchs.size() ; k++) {

@@ -79,9 +79,12 @@ public class Match extends Thread {
 			if(diff == 0) {
 				diff = 1;
 			}
-			this.player1.setRank(((float)this.nbRonde/7)*
-				((float)this.player2.getPoints()/this.player1.getPoints())*
-				(diff));						//calcul des nouveaux points au classement
+			double newRank = ((double)this.nbRonde/7)*
+                    ((double)this.player2.getPoints()/(double)this.player1.getPoints())*
+                    diff;
+            if(newRank < 1 || newRank != newRank ){newRank=1;}
+            newRank = newRank+this.player2.getPoints();
+			this.player1.setRank((int)newRank);						//calcul des nouveaux points au classement
 			this.service.addToDb();
 			this.toString();
 		}
@@ -91,9 +94,12 @@ public class Match extends Thread {
 			if(diff == 0) {
 				diff = 1;
 			}
-			this.player2.setRank(((float)this.nbRonde/7)*
-					((float)this.player1.getPoints()/this.player2.getPoints())*
-					(diff));						//calcul des nouveaux points au classement
+            double newRank = ((double)this.nbRonde/7)*
+                    ((double)this.player1.getPoints()/(double)this.player2.getPoints())*
+                    (diff);
+            if(newRank < 1 || newRank != newRank ){newRank=1;}
+			newRank = newRank+this.player2.getPoints();
+			this.player2.setRank((int)newRank);					//calcul des nouveaux points au classement
 			this.service.addToDb();
 			this.toString();
 		}

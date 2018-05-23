@@ -14,14 +14,14 @@ public class Player extends PlayerService {
         this.staminaMatch = stamina;
         this.power = power;
         this.name = name;
-        this.points = 1;
+        this.points = 100;
         this.sex = sex;
     }
 
 
-    public void setRank(float points) {
+    public void setRank(int points) {
 
-        this.points = Math.round(points);
+        this.points = points;
         this.updateDb();
     }
 
