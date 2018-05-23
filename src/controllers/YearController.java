@@ -42,7 +42,7 @@ public class YearController extends Controller {
     }
 
     @FXML
-    public void rankingButtonAction(){
+    public void rankingButtonAction(){ //ouvre page classement
     	try{
         	Stage newStage = new Stage();
         	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Ranking.fxml"));
@@ -58,7 +58,7 @@ public class YearController extends Controller {
     }
     
     @FXML
-    public void tourn1Open() {
+    public void tourn1Open() { //6 fonctions pour ouvrir chaque tournoi
     	try{
             newSwitch.uploadNewScene((Stage)tournament1.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi1",true));

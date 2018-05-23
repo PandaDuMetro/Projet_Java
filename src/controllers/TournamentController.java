@@ -20,8 +20,6 @@ import java.util.ArrayList;
 
 public class TournamentController extends Controller {
 	
-	//a ajouter : mettre liste des matchs, ouvrir fenetre match quand click sur liste
-	
 	protected String name;
 	protected boolean sex;
 	protected ArrayList<Match> matchs;
@@ -58,10 +56,10 @@ public class TournamentController extends Controller {
 
     
     public void initialize() {
-    	MatchService matchWinner = new MatchService(this.sex, this.name, 6);
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 6); //affiche le gagnat du tournoi
 		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
-		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
-    	VBox content = new VBox();
+		winnerLabel.setText(winnerMatch.get(0).getWinner().getName()); //remplit la box des rondes pour choisir les matchs
+    	VBox content = new VBox();									   //selon la ronde et le sexe
 		roundPane.setContent(content);
 		for(int i = 1; i < 7; i++) {
 			Label label = new Label("Round number "+ i);
@@ -70,7 +68,7 @@ public class TournamentController extends Controller {
 		    TournamentController self = this;
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
-		    	public void handle(MouseEvent e) {
+		    	public void handle(MouseEvent e) { //change la ronde et les matchs
 		    		VBox content2 = new VBox();
 		    		matchPane.setContent(content2);
 		    		MatchService matchSer = new MatchService(self.sex, self.name, j);
@@ -82,7 +80,7 @@ public class TournamentController extends Controller {
 	        			int l = k-1;
 	        		    label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	        		    	@Override
-	        		    	public void handle(MouseEvent e) {
+	        		    	public void handle(MouseEvent e) { //ouvre la fiche du match en cliquant
 	        		    		try{
 	        		    			Match match = new Match(matchs.get(l).get_id());
 	        		    			Stage newStage = new Stage();
@@ -107,7 +105,7 @@ public class TournamentController extends Controller {
     }
 
     @FXML
-    public void returnButtonAction(){
+    public void returnButtonAction(){ //retour en arriere selon la page precedante
         if(this.back == true) {
         	try{
                 newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking, this.womenRanking));
@@ -125,7 +123,7 @@ public class TournamentController extends Controller {
     }
 
     @FXML
-    public void rankingButtonAction(){
+    public void rankingButtonAction(){ //ouvre la page de classement
     	try{
         	Stage newStage = new Stage();
         	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Ranking.fxml"));
@@ -141,7 +139,7 @@ public class TournamentController extends Controller {
     }
     
     @FXML
-    public void changeSex() {
+    public void changeSex() { //change la variable sex pour l'affichage des matchs
     	this.sex = !this.sex;
     	if(this.sex == false) {
     		sexLabel.setText("Men");

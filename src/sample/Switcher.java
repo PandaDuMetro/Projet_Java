@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import src.controllers.Controller;
 
     public class Switcher {
-
+    	//charge une nouvelle vue dans la meme fenetre, avec un controller distinct
         public void uploadNewScene(Stage newStage, String fileName, int width, int height, Controller controller) throws Exception{
             System.out.println("Prout");
         	FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));

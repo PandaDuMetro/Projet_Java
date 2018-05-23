@@ -57,7 +57,7 @@ public class FriendlyMatchController extends Controller {
     public ScrollPane player2Field = null;
     
     public void initialize() {
-		VBox content1 = new VBox();
+		VBox content1 = new VBox(); //remplir les deux cases avec la liste des joueurs
 		player1Field.setContent(content1);
 		FriendlyMatchController self = this;
 		int i = 1;
@@ -67,7 +67,7 @@ public class FriendlyMatchController extends Controller {
 		    label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
-		    	public void handle(MouseEvent e) {
+		    	public void handle(MouseEvent e) { //le selectionne pour le match
 		    		self.player1 = self.menRanking.getPlayers().get(
 		    				Integer.parseInt(
 		    						label.getText().substring(0,label.getText().indexOf(" ")))-1);
@@ -77,7 +77,7 @@ public class FriendlyMatchController extends Controller {
 		    content1.getChildren().add(label);
 		    i++;
 		}
-		VBox content2 = new VBox();
+		VBox content2 = new VBox(); //2eme remplissage
 		player2Field.setContent(content2);
 		int j = 1;
 		for (Player elt: this.menRanking.getPlayers())
@@ -114,7 +114,7 @@ public class FriendlyMatchController extends Controller {
     }
 
     @FXML
-    public void launchButtonAction(){
+    public void launchButtonAction(){ //lance un match amical et affiche les points et autre a la fin
     	if(this.player1 != null && this.player2 != null) {
     		try{
     			Stage newStage = new Stage();
@@ -154,7 +154,7 @@ public class FriendlyMatchController extends Controller {
     }
 
     @FXML
-    public void randomButtonAction(){
+    public void randomButtonAction(){ //choisi les deux joueurs au hasard
     	Random rand = new Random();
         int player1Number = rand.nextInt(127);
         int player2Number;
@@ -163,6 +163,8 @@ public class FriendlyMatchController extends Controller {
         }while(player1Number == player2Number);
         this.player1 = this.menRanking.getPlayers().get(player1Number);
         this.player2 = this.menRanking.getPlayers().get(player2Number);
+        player1Name.setText(this.player1.getName());
+        player2Name.setText(this.player2.getName());
     }
     
     @FXML

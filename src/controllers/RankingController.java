@@ -60,17 +60,17 @@ public class RankingController extends Controller {
 	
 	
 	public void fillPane() {
-		VBox content = new VBox();
+		VBox content = new VBox();//remplir la case des joueurs masculins dynamiquement
 		menRankingPane.setContent(content);
 		int i = 1; 
 		RankingController self = this;
 		for (Player elt: this.menRanking.getPlayers())
 		{
-		    Label label = new Label(i+ "| " + elt.getName() + " -- points : " + elt.getPoints());
+		    Label label = new Label(i+ "| " + elt.getName() + " -- points : " + elt.getPoints());//en affichant leur rang et leur points
 		    label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
-		    	public void handle(MouseEvent e) {
+		    	public void handle(MouseEvent e) { //permet d'ouvrir la fiche du joueur
 		    		try{
 		            	Stage newStage = new Stage();
 		            	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Player.fxml"));
@@ -89,14 +89,14 @@ public class RankingController extends Controller {
 		                powerLabel.setText(""+player.getPower());
 		                staminaLabel.setText(""+player.getStamina());
 		                rankLabel.setText(""+(self.menRanking.getPlayers().indexOf(player)+1));
-		                VBox content1 = new VBox();
+		                VBox content1 = new VBox();   //rempli son historique de points de classement
 		        		rankingPane.setContent(content1);
 		        		int[] histPoints = player.getHistPoints();
 		        		for(int j = 1; j <= histPoints.length ; j++) {
 		        			Label label1 = new Label(""+histPoints[j-1]);
 		        			content1.getChildren().add(label1);
 		        		}
-		        		VBox content3 = new VBox();
+		        		VBox content3 = new VBox(); //rempli les matchs qu'il a joué
 		        		matchBox.setContent(content3);
 		        		MatchService matchSer = new MatchService(player.getName());
 		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
@@ -107,7 +107,7 @@ public class RankingController extends Controller {
 		        			int l = k-1;
 		        		    label2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		        		    	@Override
-		        		    	public void handle(MouseEvent e) {
+		        		    	public void handle(MouseEvent e) { //et permet d'ouvrir un des match pour le consulter
 		        		    		try{
 		        		    			Match match = new Match(matchs.get(l).get_id());
 		        		    			Stage newStage = new Stage();
@@ -133,10 +133,10 @@ public class RankingController extends Controller {
 		    content.getChildren().add(label);
 		    i++;
 		}
-		VBox content2 = new VBox();
+		VBox content2 = new VBox(); //pareil qu'au dessus mais pour la liste des femmes
 		womenRankingPane.setContent(content2);
 		i = 1;
-		for (Player elt: this.womenRanking.getPlayers()) //pareil mais pour les femmes
+		for (Player elt: this.womenRanking.getPlayers())
 		{
 		    Label label = new Label(i+ "| " + elt.getName() + " -- points : " + elt.getPoints());
 		    label.getStyleClass().add("ScrollPaneLabel");
@@ -208,7 +208,7 @@ public class RankingController extends Controller {
 	}
 
 	@FXML
-	public  void resetRanksButtonAction(){ //met plein d'erreurs voir pourquoi
+	public  void resetRanksButtonAction(){ //remet les scores a 100
 		for (Player elt: this.menRanking.getPlayers()) {
             elt.setRank(100);
         }

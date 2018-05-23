@@ -52,7 +52,7 @@ public class Controller {
     }
 
     @FXML
-    public void tournamentButtonAction(){
+    public void tournamentButtonAction(){ //lance un tournoi et l'affiche
         this.cleanDb();
         try{
         	Tournoi tournament = new Tournoi("tournoi0",this.menRanking, this.womenRanking);
@@ -64,7 +64,7 @@ public class Controller {
         }
     }
     @FXML
-    public void yearButtonAction(){
+    public void yearButtonAction(){ //lance l'annee et affiche la page
         try{
         	Annee year = new Annee(this.menRanking, this.womenRanking);
         	year.start();
