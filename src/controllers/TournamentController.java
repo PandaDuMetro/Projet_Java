@@ -24,6 +24,7 @@ public class TournamentController extends Controller {
 	
 	protected String name;
 	protected boolean sex;
+	protected ArrayList<Match> matchs;
 
     public TournamentController(Classement menRanking, Classement womenRanking, String name) {
 		super(menRanking, womenRanking);
@@ -70,16 +71,16 @@ public class TournamentController extends Controller {
 		    		VBox content2 = new VBox();
 		    		matchPane.setContent(content2);
 		    		MatchService matchSer = new MatchService(self.sex, self.name, j);
-		    		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
-		    		for(int k = 1; k <= matchs.size() ; k++) {
-	        			Label label2 = new Label(k+" : "+matchs.get(k-1).get_id());
+		    		self.matchs = (ArrayList<Match>) matchSer.getMany();
+		    		for(int k = 1; k <= self.matchs.size() ; k++) {
+	        			Label label2 = new Label(k+" : "+self.matchs.get(k-1).get_id());
 	        			label.getStyleClass().add("ScrollPaneLabel");
 	        			int l = k-1;
 	        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	        		    	@Override
 	        		    	public void handle(MouseEvent e) {
 	        		    		try{
-	        		    			Match match = new Match(matchs.get(l).get_id());
+	        		    			Match match = new Match(self.matchs.get(l).get_id());
 	        		    			Stage newStage = new Stage();
 	        		        		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Match.fxml"));
 	        		    			loader2.setController(this);
@@ -149,7 +150,7 @@ public class TournamentController extends Controller {
     	else {
     		sexLabel.setText("Women");
     	}
-    	MatchService matchWinner = new MatchService(this.sex, this.name, 7);
+    	MatchService matchWinner = new MatchService(this.sex, this.name, 6);
 		ArrayList<Match> winnerMatch = (ArrayList<Match>) matchWinner.getMany();
 		winnerLabel.setText(winnerMatch.get(0).getWinner().getName());
     }

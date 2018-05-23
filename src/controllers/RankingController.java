@@ -93,7 +93,7 @@ public class RankingController extends Controller {
 		        		rankingPane.setContent(content1);
 		        		int[] histPoints = player.getHistPoints();
 		        		for(int j = 1; j <= histPoints.length ; j++) {
-		        			Label label1 = new Label(j+" : "+histPoints[j-1]);
+		        			Label label1 = new Label(""+histPoints[j-1]);
 		        			content1.getChildren().add(label1);
 		        		}
 		        		VBox content2 = new VBox();
@@ -136,7 +136,7 @@ public class RankingController extends Controller {
 		        		        	}
 		        		    	}
 		        		    });
-		        			content1.getChildren().add(label2);
+		        			content2.getChildren().add(label2);
 		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();
@@ -173,8 +173,56 @@ public class RankingController extends Controller {
 		                nameLabel.setText(player.getName());
 		                powerLabel.setText(""+player.getPower());
 		                staminaLabel.setText(""+player.getStamina());
-		                //rankingLabel.setText(""+player.getPoints());
-		                rankLabel.setText(""+(self.womenRanking.getPlayers().indexOf(player)+1));
+		                rankLabel.setText(""+(self.menRanking.getPlayers().indexOf(player)+1));
+		                VBox content1 = new VBox();
+		        		rankingPane.setContent(content1);
+		        		int[] histPoints = player.getHistPoints();
+		        		for(int j = 1; j <= histPoints.length ; j++) {
+		        			Label label1 = new Label(""+histPoints[j-1]);
+		        			content1.getChildren().add(label1);
+		        		}
+		        		VBox content3 = new VBox();
+		        		matchBox.setContent(content3);
+		        		MatchService matchSer = new MatchService(player.getName());
+		        		ArrayList<Match> matchs = (ArrayList<Match>) matchSer.getMany();
+		        		for(int k = 1; k <= matchs.size() ; k++) {
+		        			Label label2 = new Label(k+" : "+matchs.get(k-1).get_id());
+		        			label.getStyleClass().add("ScrollPaneLabel");
+		        			int l = k-1;
+		        		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		        		    	@Override
+		        		    	public void handle(MouseEvent e) {
+		        		    		try{
+		        		    			Match match = new Match(matchs.get(l).get_id());
+		        		    			Stage newStage = new Stage();
+		        		        		FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Match.fxml"));
+		        		    			loader2.setController(this);
+		        		    			Parent root = loader2.load();
+		        		            	newStage.setTitle("Match window");
+		        		            	newStage.setScene(new Scene(root, 800, 500));
+		        		            	root.getStylesheets().add("src/sample/CSS/style.css");
+		        		            	newStage.show();
+		        		            	winnerName.setText("TBD");
+		        		            	tournamentName.setText("Match Amical");
+		        		            	roundNumber.setText("0");
+		        		            	namePlayer1.setText(match.getPlayer1().getName());
+		        		            	namePlayer2.setText(match.getPlayer2().getName());
+		        		            	firstPlayerName.setText(match.getPlayer1().getName());
+		        		            	secondPlayerName.setText(match.getPlayer2().getName());
+		        		            	firstPlayerScoreSet1.setText(""+match.getPoints(0));
+		        		            	secondPlayerScoreSet1.setText(""+match.getPoints(1));
+		        		            	firstPlayerScoreSet2.setText(""+match.getPoints(2));
+		        		            	secondPlayerScoreSet2.setText(""+match.getPoints(3));
+		        		            	firstPlayerScoreSet3.setText(""+match.getPoints(4));
+		        		            	secondPlayerScoreSet3.setText(""+match.getPoints(5));
+		        		            	winnerName.setText(match.getWinner().getName());
+		        		        	}catch (Exception ex){
+		        		        		ex.printStackTrace();
+		        		        	}
+		        		    	}
+		        		    });
+		        			content3.getChildren().add(label2);
+		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();
 		            }
