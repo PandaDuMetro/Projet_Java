@@ -20,7 +20,7 @@ router.post('/newmatch', (req, res, next) => {
     if(err) {
       res.json('Error');
     } else {
-      res.json(match);
+      res.send(match._id);
     }
   })
 });

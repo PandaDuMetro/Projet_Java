@@ -14,17 +14,14 @@ public abstract class PlayerService extends BddService {
     protected String _id;
     protected int[] histPoints;
 
-    public PlayerService(){
-        this.url = "http://localhost:8080/players";
-    }
 
     public void addToDb(){
         Gson json = new Gson();
-        this.executePost(this.url+"/newplayer", json.toJson(this));
+        this.executePost("http://localhost:8080/players/newplayer", json.toJson(this));
     }
 
     public void getFromDb(String name){
-        this.executePost(this.url+"/getplayer", "{\"name\":\""+name+"\"}");
+        this.executePost("http://localhost:8080/players/getplayer", "{\"name\":\""+name+"\"}");
         Gson json = new Gson();
         PlayerService elts = json.fromJson(this.serverResponse, Player.class);
         this.name = ((Player) elts).getName();
@@ -37,6 +34,6 @@ public abstract class PlayerService extends BddService {
     }
 
     public void updateDb(){
-        this.executePost(this.url+"/updatepoints", "{\"id\": \""+this._id+ ",\"points\": \""+this.points+"\" ]");
+        this.executePost("http://localhost:8080/players/updatepoints", "{\"id\": \""+this._id+"\",\"points\": "+this.points+"}");
     }
 }

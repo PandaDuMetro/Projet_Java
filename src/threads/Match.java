@@ -1,5 +1,6 @@
 package src.threads;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import src.Player;
@@ -76,7 +77,8 @@ public class Match extends Thread {
 			this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
 					(this.sets[0] - this.sets[1]));						//calcul des nouveaux points au classement
-			this.service.addToDb();
+			//this.service.addToDb();
+            this.toString();
 			//requete victoire match
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
@@ -84,7 +86,8 @@ public class Match extends Thread {
 			this.player2.setRank((this.nbRonde/7)*
 					(this.player1.getPoints()/this.player2.getPoints())*
 					(this.sets[1] - this.sets[0]));
-			this.service.addToDb();
+			//this.service.addToDb();
+            this.toString();
 			//requete victoire match
 		}
 		this.player1.setStaminaMatch(this.player1.getStamina()); //on remet les staminas a la normale
@@ -161,5 +164,20 @@ public class Match extends Thread {
 
 	public void setNameTournament(String nameTournament) {
 		this.nameTournament = nameTournament;
+	}
+
+	@Override
+	public String toString() {
+		return "Match{" +
+				"player1=" + player1 +
+				", player2=" + player2 +
+				", points=" + Arrays.toString(points) +
+				", sets=" + Arrays.toString(sets) +
+				", winner=" + winner +
+				", nbRonde=" + nbRonde +
+				", _id='" + _id + '\'' +
+				", sex=" + sex +
+				", nameTournament='" + nameTournament + '\'' +
+				'}';
 	}
 }

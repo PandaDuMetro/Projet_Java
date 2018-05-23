@@ -12,19 +12,16 @@ public class MatchService extends BddService {
     private Match match;
 
     public MatchService(Boolean sex, String nameTournament, int ronde){
-        this.url = "http://localhost:8080/matchs";
-        this.executePost(this.url+"/getbytrs", "{\"sex\": \""+sex+
+        this.executePost("http://localhost:8080/matchs/getbytrs", "{\"sex\": \""+sex+
                 ",\"nameTournament\": \""+nameTournament+ "\",\"ronde: \""+ronde+"\" }");
 
     }
 
     public MatchService(String name){
-        this.url = "http://localhost:8080/matchs";
-        this.executePost(this.url+"/getbyname", "{\"name\":\""+name+"\"}");
+        this.executePost("http://localhost:8080/matchs/getbyname", "{\"name\":\""+name+"\"}");
     }
 
     public MatchService(Match match){
-        this.url = "http://localhost:8080/matchs";
         this.match = match;
     }
 
@@ -37,15 +34,13 @@ public class MatchService extends BddService {
     }
 
     public void addToDb() {
-        this.executePost(this.url + "/newmatch", this.getParameters());
-        System.out.println(this.serverResponse);
-        Gson json = new Gson();
-        Match res = json.fromJson(this.serverResponse, Match.class);
-        this.match.set_id(res.get_id());
+        this.serverResponse = "";
+        this.executePost("http://localhost:8080/matchs/newmatch", this.getParameters());
+        this.match.set_id(this.serverResponse);
     }
 
     public void getById(String id) {
-        this.executePost(this.url + "/getmatch", "{\"id\":\"" + id + "\"}");
+        this.executePost("http://localhost:8080/matchs/getmatch", "{\"id\":\"" + id + "\"}");
         Gson json = new Gson();
         MatchToSave elts = json.fromJson(this.serverResponse, MatchToSave.class);
         this.match.setPlayer1(new Player(elts.player1));

@@ -15,7 +15,6 @@ public abstract class ClassementService extends BddService {
     protected List<Player> players;
 
     public ClassementService() {
-        this.url = "http://localhost:8080/players";
         if(!this.isInitiated()){
             String thisLine;
             File f = new File("src/players.txt");
@@ -40,7 +39,7 @@ public abstract class ClassementService extends BddService {
     }
 
     public void getAllPlayers(boolean sex){
-        this.executePost(this.url+"/getall", "{\"sex\":"+sex+"}");
+        this.executePost("http://localhost:8080/players/getall", "{\"sex\":"+sex+"}");
         Gson json = new Gson();
         Player[] elts = json.fromJson(this.serverResponse, Player[].class);
         for (Player player: elts) {
@@ -49,7 +48,7 @@ public abstract class ClassementService extends BddService {
     }
 
     public boolean isInitiated(){
-        this.executePost(this.url+"/isinitiated", "");
+        this.executePost("http://localhost:8080/players/isinitiated", "");
         Gson json = new Gson();
         ServerResponse isSet = json.fromJson(this.serverResponse, ServerResponse.class);
         if(isSet.success){
