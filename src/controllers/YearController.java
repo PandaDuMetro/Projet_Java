@@ -61,7 +61,7 @@ public class YearController extends Controller {
     public void tourn1Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament1.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi1"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi1",true));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class YearController extends Controller {
     public void tourn2Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament2.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi2"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi2",true));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -81,7 +81,7 @@ public class YearController extends Controller {
     public void tourn3Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament3.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi3"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi3",true));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class YearController extends Controller {
     public void tourn4Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament4.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi4"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi4",true));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class YearController extends Controller {
     public void tourn5Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament5.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi5"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi5",true));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -111,7 +111,7 @@ public class YearController extends Controller {
     public void tourn6Open() {
     	try{
             newSwitch.uploadNewScene((Stage)tournament6.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi6"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi6",true));
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -55,7 +55,7 @@ public class Controller {
         	Tournoi tournament = new Tournoi("tournoi0",this.menRanking, this.womenRanking);
         	tournament.run();
             newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
-                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
+                    1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0", false));
         }catch (Exception e){
             e.printStackTrace();
         }

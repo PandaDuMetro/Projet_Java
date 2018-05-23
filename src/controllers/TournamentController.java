@@ -25,11 +25,13 @@ public class TournamentController extends Controller {
 	protected String name;
 	protected boolean sex;
 	protected ArrayList<Match> matchs;
+	protected boolean back;
 
-    public TournamentController(Classement menRanking, Classement womenRanking, String name) {
+    public TournamentController(Classement menRanking, Classement womenRanking, String name, boolean back) {
 		super(menRanking, womenRanking);
 		this.sex = false;
 		this.name = name;
+		this.back = back;
 	}
 
     @FXML
@@ -106,10 +108,19 @@ public class TournamentController extends Controller {
 
     @FXML
     public void returnButtonAction(){
-        try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking, this.womenRanking));
-        }catch (Exception e){
-            e.printStackTrace();
+        if(this.back == true) {
+        	try{
+                newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking, this.womenRanking));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        else {
+        	try{
+                newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking, this.womenRanking));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
