@@ -9,6 +9,10 @@ public class MatchService extends BddService {
     private Match match;
     protected String url = "http://localhost:8080/matchs";
 
+    public MatchService(Boolean sex, String tournois, int ronde){
+        //this.executePost('/get');
+    }
+
     public MatchService(Match match){
         this.match = match;
     }

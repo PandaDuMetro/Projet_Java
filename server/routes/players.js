@@ -62,7 +62,14 @@ router.post('/isinitiated', (req, res, next) => {
       res.json({success: true, msg: 'DB initiated'});
     } else res.json({success: false, msg: 'DB not initiated'});
   })
-})
+});
+
+router.get('/remiseazero', (req, res, body) => {
+  Player.remove({}, (err, data) => {
+    if (err) throw err;
+    res.json(data);
+  });
+});
 
 // Test
 router.post('/test', (req, res, next) => {
