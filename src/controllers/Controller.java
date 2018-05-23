@@ -24,9 +24,11 @@ public class Controller {
 
     protected Switcher newSwitch = new Switcher();
     protected Classement menRanking = null;
+    protected Classement womenRanking = null;
     
-    public Controller(Classement menRanking) {
+    public Controller(Classement menRanking, Classement womenRanking) {
     	this.menRanking = menRanking;
+    	this.womenRanking = womenRanking;
     }
     
     @FXML
@@ -38,7 +40,7 @@ public class Controller {
     @FXML
     public void matchButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)matchButton.getScene().getWindow(),"Scenes/FriendlyMatch.fxml",1000, 750,new FriendlyMatchController(this.menRanking));
+            newSwitch.uploadNewScene((Stage)matchButton.getScene().getWindow(),"Scenes/FriendlyMatch.fxml",1000, 750,new FriendlyMatchController(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -47,7 +49,7 @@ public class Controller {
     @FXML
     public void tournamentButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, "test"));
+            newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, this.womenRanking, "test"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -55,7 +57,7 @@ public class Controller {
     @FXML
     public void yearButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking));
+            newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -65,7 +67,7 @@ public class Controller {
         try{
         	Stage newStage = new Stage();
         	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Ranking.fxml"));
-    		loader2.setController(new RankingController(menRanking));
+    		loader2.setController(new RankingController(this.menRanking, this.womenRanking));
     		Parent root = loader2.load();
             newStage.setTitle("Ranking window");
             newStage.setScene(new Scene(root, 1000, 650));

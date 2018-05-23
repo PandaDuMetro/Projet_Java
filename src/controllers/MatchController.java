@@ -14,13 +14,14 @@ public class MatchController extends Controller {
 	protected String id;
 	protected Match match;
 
-    public MatchController(Classement menRanking, String id) {
-		super(menRanking);
+    public MatchController(Classement menRanking, Classement womenRanking, String id) {
+		super(menRanking, womenRanking);
 		this.id = id;
+		this.match = new Match(id);
 	}
     
-    public MatchController(Classement menRanking, Match match) {
-		super(menRanking);
+    public MatchController(Classement menRanking, Classement womenRanking, Match match) {
+		super(menRanking, womenRanking);
 		this.match = match;
 	}
 
@@ -54,19 +55,19 @@ public class MatchController extends Controller {
 
     @FXML
     private void initialize() {
-        winnerName.setText("Name of the Winner");
-        tournamentName.setText("Tournament 1");
-        roundNumber.setText("3");
-        firstPlayerScoreSet1.setText("3");
-        secondPlayerScoreSet1.setText("6");
-        firstPlayerScoreSet2.setText("6");
-        secondPlayerScoreSet2.setText("4");
-        firstPlayerScoreSet3.setText("5");
-        secondPlayerScoreSet3.setText("7");
-        namePlayer1.setText("Joueur 1");
-        namePlayer2.setText("Joueur 2");
-        firstPlayerName.setText("Joueur 1");
-        secondPlayerName.setText("Joueur 2");
+        winnerName.setText(this.match.getWinner().getName());
+        tournamentName.setText(this.match.getNameTournament());
+        roundNumber.setText(this.match.getNbRonde()+"");
+        firstPlayerScoreSet1.setText(this.match.getPoints(0)+"");
+        secondPlayerScoreSet1.setText(this.match.getPoints(1)+"");
+        firstPlayerScoreSet2.setText(this.match.getPoints(2)+"");
+        secondPlayerScoreSet2.setText(this.match.getPoints(3)+"");
+        firstPlayerScoreSet3.setText(this.match.getPoints(4)+"");
+        secondPlayerScoreSet3.setText(this.match.getPoints(5)+"");
+        namePlayer1.setText(this.match.getPlayer1().getName());
+        namePlayer2.setText(this.match.getPlayer2().getName());
+        firstPlayerName.setText(this.match.getPlayer1().getName());
+        secondPlayerName.setText(this.match.getPlayer2().getName());
 
 
     }

@@ -16,7 +16,7 @@
       </Label>
       <Button fx:id="rankingButton" layoutX="650.0" layoutY="375.0" mnemonicParsing="false" onAction="#rankingButtonAction" prefHeight="100.0" prefWidth="200.0" text="Ranking" />
       <Button fx:id="returnButton" layoutX="650.0" layoutY="579.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="100.0" prefWidth="200.0" text="Return" />
-      <ScrollPane layoutX="118.0" layoutY="278.0" prefHeight="351.0" prefWidth="366.0" />
+      <ScrollPane layoutX="118.0" layoutY="278.0" prefHeight="351.0" prefWidth="366.0" fx:id="matchPane"/>
       <Label layoutX="274.0" layoutY="213.0" text="Matchs">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
@@ -31,8 +31,8 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <ChoiceBox layoutX="163.0" layoutY="127.0" prefHeight="50.0" prefWidth="200.0" />
-      <Button layoutX="775.0" layoutY="45.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Change Sex" />
-      <Label layoutX="775.0" layoutY="111.0" text="Sex of the Tournament" />
+      <ScrollPane layoutX="163.0" layoutY="127.0" prefHeight="50.0" prefWidth="200.0" fx:id="roundPane"/>
+      <Button layoutX="775.0" layoutY="45.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Change Sex" fx:id="sexButton" onAction="#changeSex"/>
+      <Label layoutX="775.0" layoutY="111.0" text="Men" fx:id="sexLabel"/>
    </children>
 </AnchorPane>

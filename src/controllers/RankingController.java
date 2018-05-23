@@ -16,8 +16,8 @@ import src.sample.Switcher;
 
 public class RankingController extends Controller {
 	
-    public RankingController(Classement menRanking) {
-		super(menRanking);
+    public RankingController(Classement menRanking, Classement womenRanking) {
+		super(menRanking, womenRanking);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -25,7 +25,7 @@ public class RankingController extends Controller {
 	@FXML
     public javafx.scene.control.Button returnButton;
 	public ScrollPane menRankingPane;
-	
+	public ScrollPane womenRankingPane;
 	public javafx.scene.control.Label powerLabel;
 	public javafx.scene.control.Label staminaLabel;
 	public javafx.scene.control.Label rankingLabel;
@@ -41,6 +41,7 @@ public class RankingController extends Controller {
 		for (Player elt: this.menRanking.getPlayers())
 		{
 		    Label label = new Label(i+ "| " + elt.getName() + " -- points : " + elt.getPoints());
+		    label.getStyleClass().add("ScrollPaneLabel");
 		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		    	@Override
 		    	public void handle(MouseEvent e) {
@@ -69,6 +70,43 @@ public class RankingController extends Controller {
 		    	}
 		    });
 		    content.getChildren().add(label);
+		    i++;
+		}
+		VBox content2 = new VBox();
+		womenRankingPane.setContent(content2);
+		i = 1;
+		for (Player elt: this.womenRanking.getPlayers()) //pareil mais pour les femmes
+		{
+		    Label label = new Label(i+ "| " + elt.getName() + " -- points : " + elt.getPoints());
+		    label.getStyleClass().add("ScrollPaneLabel");
+		    label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		    	@Override
+		    	public void handle(MouseEvent e) {
+		    		try{
+		            	Stage newStage = new Stage();
+		            	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Player.fxml"));
+		        		loader2.setController(self);
+		        		Parent root = loader2.load();
+		                newStage.setTitle("Player window");
+		                newStage.setScene(new Scene(root, 1000, 750));
+		                root.getStylesheets().add("src/sample/CSS/style.css");
+		                newStage.show();
+		                Player player = new Player(
+		                		self.womenRanking.getPlayers().get(
+		                				Integer.parseInt(
+			    						label.getText().substring(
+			    								0,label.getText().indexOf("|")))-1).getName());
+		                nameLabel.setText(player.getName());
+		                powerLabel.setText(""+player.getPower());
+		                staminaLabel.setText(""+player.getStamina());
+		                rankingLabel.setText(""+player.getPoints());
+		                rankLabel.setText(""+(self.womenRanking.getPlayers().indexOf(player)+1));
+		            }catch (Exception ex){
+		                ex.printStackTrace();
+		            }
+		    	}
+		    });
+		    content2.getChildren().add(label);
 		    i++;
 		}
 	}

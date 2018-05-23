@@ -21,7 +21,7 @@ public class Main extends Application {
 		Classement menRanking = new Classement(false);
 		Classement womenRanking = new Classement(true);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("sample/Scenes/Menu.fxml"));
-		loader.setController(new Controller(menRanking));
+		loader.setController(new Controller(menRanking, womenRanking));
 		Parent root = loader.load();
         primaryStage.setTitle("My beautiful view");
         primaryStage.setScene(new Scene(root, 1000, 750));

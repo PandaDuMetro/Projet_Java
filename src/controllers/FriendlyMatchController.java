@@ -28,8 +28,8 @@ public class FriendlyMatchController extends Controller {
 	protected Player player2;
 	protected FriendlyMatch match;
 
-    public FriendlyMatchController(Classement menRanking) {
-		super(menRanking);
+    public FriendlyMatchController(Classement menRanking, Classement womenRanking) {
+		super(menRanking, womenRanking);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -51,6 +51,8 @@ public class FriendlyMatchController extends Controller {
     public javafx.scene.control.Label namePlayer2;
     public javafx.scene.control.Label secondPlayerName;
     public javafx.scene.control.Label firstPlayerName;
+    public javafx.scene.control.Label player1Name;
+    public javafx.scene.control.Label player2Name;
     public ScrollPane player1Field = null;
     public ScrollPane player2Field = null;
     
@@ -69,6 +71,7 @@ public class FriendlyMatchController extends Controller {
 		    		self.player1 = self.menRanking.getPlayers().get(
 		    				Integer.parseInt(
 		    						label.getText().substring(0,label.getText().indexOf(" ")))-1);
+		    		player1Name.setText(self.player1.getName());
 		    	}
 		    });
 		    content1.getChildren().add(label);
@@ -87,6 +90,7 @@ public class FriendlyMatchController extends Controller {
 		    		self.player2 = self.menRanking.getPlayers().get(
 		    				Integer.parseInt(
 		    						label.getText().substring(0,label.getText().indexOf(" ")))-1);
+		    		player2Name.setText(self.player2.getName());
 		    	}
 		    });
 		    content2.getChildren().add(label);
@@ -98,7 +102,7 @@ public class FriendlyMatchController extends Controller {
     @FXML
     public void returnButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking));
+            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();
         }

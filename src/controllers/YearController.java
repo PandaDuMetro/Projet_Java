@@ -14,8 +14,8 @@ import src.sample.Switcher;
 
 public class YearController extends Controller {
 
-    public YearController(Classement menRanking) {
-		super(menRanking);
+    public YearController(Classement menRanking, Classement womenRanking) {
+		super(menRanking, womenRanking);
 	}
 
     @FXML
@@ -27,7 +27,7 @@ public class YearController extends Controller {
     @FXML
     public void returnButtonAction(){
         try{
-            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking));
+            newSwitch.uploadNewScene((Stage)returnButton.getScene().getWindow(),"Scenes/Menu.fxml",1000, 750,new Controller(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -38,7 +38,7 @@ public class YearController extends Controller {
     	try{
         	Stage newStage = new Stage();
         	FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/src/sample/Scenes/Ranking.fxml"));
-    		loader2.setController(new RankingController(menRanking));
+    		loader2.setController(new RankingController(this.menRanking,this.womenRanking));
     		Parent root = loader2.load();
             newStage.setTitle("Ranking window");
             newStage.setScene(new Scene(root, 800, 500));

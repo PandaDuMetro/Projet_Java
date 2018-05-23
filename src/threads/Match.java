@@ -8,8 +8,8 @@ import src.services.MatchService;
 public class Match extends Thread {
 	private Player player1;
 	private Player player2;
-	private int[] points = new int[6]; //contient tout les points de sets (2 a 2), pour la BDD
-	private int[] sets = new int[2];
+	private int[] points = {0,0,0,0,0,0}; //contient tout les points de sets (2 a 2), pour la BDD
+	private int[] sets = {0,0};
 	private Player winner;
 	private int nbRonde;
 	private String _id;
@@ -108,7 +108,11 @@ public class Match extends Thread {
     }
 
     public int[] getPoints() {
-        return points;
+        return this.points;
+    }
+    
+    public int getPoints(int i) {
+        return this.points[i];
     }
 
     public void setPoints(int[] points) {
@@ -141,5 +145,9 @@ public class Match extends Thread {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+    
+    public String getNameTournament() {
+    	return this.nameTournament;
     }
 }
