@@ -42,11 +42,12 @@ public class FriendlyMatch extends Thread { //semblable a match mais affichage d
 		this.player1.setStaminaMatch(this.player1.getStamina());
 		this.player2.setStaminaMatch(this.player2.getStamina());
 		Random rand = new Random();
+		float cent = (float) 100;
 		int set = 0;
 		while(this.sets[0] != 2 && this.sets[1] != 2 && this.player1.getStaminaMatch() > 0 && this.player2.getStaminaMatch() > 0) {
 			while(this.setIsOver(this.points[set+0], this.points[set+1]) == 0) {
-				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)); //calcul valeurs
-				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100));
+				float val1 = (this.player1.getPower()/(cent-this.player1.getStaminaMatch()))*(rand.nextInt(100)+1); //calcul valeurs
+				float val2 = (this.player2.getPower()/(cent-this.player2.getStaminaMatch()))*(rand.nextInt(100)+1);
 				if(val1 > val2) { //joueur 1 gagne le point
 					this.points[set+0]++;
 				}

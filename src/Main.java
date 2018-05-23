@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.controllers.Controller;
+import src.threads.Match;
 
 import java.io.*;
 import java.util.ArrayList;
