@@ -20,7 +20,7 @@ public class Match extends Thread {
 
 	public Match(String id) {
 		this.service = new MatchService(this);
-		this.service.getFromDb(id);
+		this.service.getById(id);
 	}
 
 	public Match(Player player1, Player player2, int nbRonde, boolean sex, String nameTournament) {
@@ -123,7 +123,11 @@ public class Match extends Thread {
         return sets;
     }
 
-    public void setSets(int[] sets) {
+	public boolean getSex() {
+		return sex;
+	}
+
+	public void setSets(int[] sets) {
         this.sets = sets;
     }
 
@@ -150,4 +154,12 @@ public class Match extends Thread {
     public String getNameTournament() {
     	return this.nameTournament;
     }
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
+	public void setNameTournament(String nameTournament) {
+		this.nameTournament = nameTournament;
+	}
 }

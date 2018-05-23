@@ -59,16 +59,8 @@ public class Player extends PlayerService {
     public String getId() {
         return _id;
     }
-    @Override
-    public String toString() {
-        return "Player{" +
-                "stamina=" + stamina +
-                ", staminaMatch=" + staminaMatch +
-                ", power=" + power +
-                ", name='" + name + '\'' +
-                ", points=" + points +
-                ", sex=" + sex +
-                ", _id='" + _id + '\'' +
-                '}';
+
+    public int[] getHistPoints(){
+        return histPoints;
     }
 }

@@ -28,10 +28,6 @@ const MatchSchema = mongoose.Schema({
 const Match = module.exports = mongoose.model('Match', MatchSchema);
 
 
-module.exports.getMatchById = function(id, callback){
-  Match.findById(id, callback);
-};
-
 module.exports.addMatch = function(newMatch, callback){
   newMatch.save(callback);
 };

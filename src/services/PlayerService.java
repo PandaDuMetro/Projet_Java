@@ -1,6 +1,6 @@
 package src.services;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
 import src.Player;
 
 public abstract class PlayerService extends BddService {
@@ -12,6 +12,7 @@ public abstract class PlayerService extends BddService {
     protected int points;
     protected boolean sex; //0 = homme,  1 = femme
     protected String _id;
+    protected int[] histPoints;
 
     public PlayerService(){
         this.url = "http://localhost:8080/players";
@@ -32,13 +33,10 @@ public abstract class PlayerService extends BddService {
         this.power = ((Player) elts).getPower();
         this.points = ((Player) elts).getPoints();
         this.sex = ((Player) elts).getSex();
+        this.histPoints = ((Player) elts).getHistPoints();
     }
 
     public void updateDb(){
-        this.executePost(this.url+"/updatepoints", "{\"id\": \""+this._id+ "\"points\": \""+this.points+"\" ]");
+        this.executePost(this.url+"/updatepoints", "{\"id\": \""+this._id+ ",\"points\": \""+this.points+"\" ]");
     }
-
-
-
-
 }

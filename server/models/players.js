@@ -17,7 +17,8 @@ const PlayerSchema = mongoose.Schema({
   },
   points: {
     type: Number
-  }
+  },
+  histPoints: []
 });
 
 const Player = module.exports = mongoose.model('Player', PlayerSchema);

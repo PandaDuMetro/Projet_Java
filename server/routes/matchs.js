@@ -26,9 +26,7 @@ router.post('/newmatch', (req, res, next) => {
 });
 
 router.post('/getmatch', (req, res, next) => {
-  console.log('Get Match');
-  console.log(req.body);
-  Match.getMatchById(req.body.id, (err, match) => {
+  Match.findById(req.body.id, (err, match) => {
     if(err) {
       res.json('Error : '+err);
     } else {
@@ -36,6 +34,25 @@ router.post('/getmatch', (req, res, next) => {
     }
   })
 });
+
+router.post('/getbytrs', (req, res, next) => {
+  var query = {sex: req.body.sex, nameTournament: req.body.nameTournament, ronde: req.body.ronde}
+  Match.find(query, (err, data) => {
+    if(err) throw err;
+    res.json(data);
+  });
+});
+
+router.post('/getbyname', (req, res, next) => {
+  Match.find({$or:[
+    {player1: req.body.name},
+    {player2: req.body.name}
+  ]}, (err, data) => {
+    if(err) throw err;
+    res.json(data);
+  });
+});
+
 
 router.get('/remiseazero', (req, res, body) => {
   Match.remove({}, (err, res) => {
