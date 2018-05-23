@@ -236,10 +236,10 @@ public class RankingController extends Controller {
 	@FXML
 	public  void resetRanksButtonAction(){ //met plein d'erreurs voir pourquoi
 		for (Player elt: this.menRanking.getPlayers()) {
-            elt.setRank(1);
+            elt.setRank(100);
         }
 		for (Player elt: this.womenRanking.getPlayers()) {
-            elt.setRank(1);
+            elt.setRank(100);
         }
 		menRankingPane.setContent(null);
 		womenRankingPane.setContent(null);

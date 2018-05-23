@@ -16,12 +16,12 @@ public class Annee extends Thread {
 		super();
 		this.players = players; //on cree 6 tournois pour tout le long de l'annee
 		this.fPlayers = fPlayers;
-		this.tournois.add(new Tournoi("tournoi 1",this.players, this.fPlayers)); //fait a l'arrache
-		this.tournois.add(new Tournoi("tournoi 2",this.players, this.fPlayers)); //voir si ca peut pas etre plus propre
-		this.tournois.add(new Tournoi("tournoi 3",this.players, this.fPlayers));
-		this.tournois.add(new Tournoi("tournoi 4",this.players, this.fPlayers));
-		this.tournois.add(new Tournoi("tournoi 5",this.players, this.fPlayers));
-		this.tournois.add(new Tournoi("tournoi 6",this.players, this.fPlayers));
+		this.tournois.add(new Tournoi("tournoi1",this.players, this.fPlayers)); //fait a l'arrache
+		this.tournois.add(new Tournoi("tournoi2",this.players, this.fPlayers)); //voir si ca peut pas etre plus propre
+		this.tournois.add(new Tournoi("tournoi3",this.players, this.fPlayers));
+		this.tournois.add(new Tournoi("tournoi4",this.players, this.fPlayers));
+		this.tournois.add(new Tournoi("tournoi5",this.players, this.fPlayers));
+		this.tournois.add(new Tournoi("tournoi6",this.players, this.fPlayers));
 	}
 
 
@@ -39,7 +39,7 @@ public class Annee extends Thread {
 			catch(InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("tournoi "+i+"fini");
+			System.out.println("tournoi "+(i+1)+"fini");
 		}
 	}
 }
