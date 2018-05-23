@@ -51,12 +51,7 @@ public class MatchService extends BddService {
         this.match.setSex(elts.sex);
         this.match.setNameTournament(elts.nameTournament);
         this.match.set_id(elts._id);
-        if(elts.winner == elts.player1){
-            this.match.setWinner(this.match.getPlayer1());
-        }
-        else {
-            this.match.setWinner(this.match.getPlayer2());
-        }
+        this.match.setWinner(new Player(elts.winner));
     }
 
     public List getMany(){
