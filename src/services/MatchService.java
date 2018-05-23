@@ -10,19 +10,21 @@ import java.util.List;
 public class MatchService extends BddService {
 
     private Match match;
-    protected String url = "http://localhost:8080/matchs";
 
     public MatchService(Boolean sex, String nameTournament, int ronde){
+        this.url = "http://localhost:8080/matchs";
         this.executePost(this.url+"/getbytrs", "{\"sex\": \""+sex+
                 ",\"nameTournament\": \""+nameTournament+ "\",\"ronde: \""+ronde+"\" }");
 
     }
 
     public MatchService(String name){
+        this.url = "http://localhost:8080/matchs";
         this.executePost(this.url+"/getbyname", "{\"name\":\""+name+"\"}");
     }
 
     public MatchService(Match match){
+        this.url = "http://localhost:8080/matchs";
         this.match = match;
     }
 
