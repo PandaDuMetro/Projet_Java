@@ -28,14 +28,14 @@ public class Tournoi extends Thread {
 	public void run() {
 		ExecutorService exec;
 		List<Player> menPlayers = this.players.getPlayers();
+		List<Match> matchs = new ArrayList<Match>();
 		//random sur le tableau des joueurs
 		Collections.shuffle(menPlayers);
 		//boucle while jusqu'a 1 joueur restant
-		int ronde = 0;
+		int ronde = 1;
 		while(menPlayers.size() != 1) {
 			ronde++;
 			//chaque ronde : tableau de matchs joueurs 2 a deux
-			List<Match> matchs = new ArrayList<Match>();
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) { //on cree les matchs avec deux joueurs
 				matchs.add(new Match(menPlayers.get(0), menPlayers.get(1), ronde, false, this.name));
 				menPlayers.remove(0); //puis on retire les joueurs du tableau pour ne pas les reutiliser avant la prochaine ronde
@@ -50,18 +50,18 @@ public class Tournoi extends Thread {
 			while(!exec.isTerminated()) {
 				 //attente des threads
 			}
+			System.out.println("Ronde terminée");
 			//on recupere les vainqueurs pour la prochaine ronde
+			matchs.clear();
 			menPlayers.clear();
 			menPlayers = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList()); 
 		}
-		//envoyer requete gagnant tournoi
 		//puis pour les femmes : 
 		List<Player> womenPlayers = this.fPlayers.getPlayers();
 		Collections.shuffle(womenPlayers);
-		ronde = 0;
+		ronde = 1;
 		while(womenPlayers.size() != 1) {
 			ronde++;
-			List<Match> matchs = new ArrayList<Match>();
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) {
 				matchs.add(new Match(womenPlayers.get(0), womenPlayers.get(1), ronde, true, this.name));
 				womenPlayers.remove(0);
@@ -73,11 +73,12 @@ public class Tournoi extends Thread {
 			}
 			exec.shutdown();
 			while(!exec.isTerminated()) {
-				
 			}
+			System.out.println("ronde f terminée");
+			matchs.clear();
 			womenPlayers.clear();
 			womenPlayers = matchs.stream().map(x -> x.getWinner()).collect(Collectors.toList()); 
 		}
-		
+		System.out.println("Tournoi terminé");
 	}
 }

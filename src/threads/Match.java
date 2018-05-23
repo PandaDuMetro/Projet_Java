@@ -73,17 +73,17 @@ public class Match extends Thread {
 		}
 		if(this.sets[0] == 2 || this.player2.getStaminaMatch() < 1) {
 			this.winner = this.player1;
-			this.player1.setRank((this.nbRonde/7)*
+			/*this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
-					(this.sets[0] - this.sets[1]));						//calcul des nouveaux points au classement
+					(this.sets[0] - this.sets[1]));	*/					//calcul des nouveaux points au classement
 			this.service.addToDb();
 			//requete victoire match
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;
-			this.player2.setRank((this.nbRonde/7)*
+			/*this.player2.setRank((this.nbRonde/7)*
 					(this.player1.getPoints()/this.player2.getPoints())*
-					(this.sets[1] - this.sets[0]));
+					(this.sets[1] - this.sets[0]));*/
 			this.service.addToDb();
 			//requete victoire match
 		}

@@ -34,6 +34,7 @@ public class RankingController extends Controller {
 	public javafx.scene.control.Label rankLabel;
 	public javafx.scene.control.Label nameLabel;
 	public ScrollPane matchBox;
+	public ScrollPane rankingPane;
 
 	public void initialize() {
 		this.fillPane();
@@ -69,8 +70,14 @@ public class RankingController extends Controller {
 		                nameLabel.setText(player.getName());
 		                powerLabel.setText(""+player.getPower());
 		                staminaLabel.setText(""+player.getStamina());
-		                //rankingLabel.setText(""+player.getPoints());
 		                rankLabel.setText(""+(self.menRanking.getPlayers().indexOf(player)+1));
+		                VBox content1 = new VBox();
+		        		rankingPane.setContent(content1);
+		        		int[] histPoints = player.getHistPoints();
+		        		for(int j = 1; j <= histPoints.length ; j++) {
+		        			Label label1 = new Label(j+" : "+histPoints[j-1]);
+		        			content1.getChildren().add(label1);
+		        		}
 		            }catch (Exception ex){
 		                ex.printStackTrace();
 		            }

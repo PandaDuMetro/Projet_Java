@@ -52,6 +52,6 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <ScrollPane layoutX="560.0" layoutY="219.0" prefHeight="150.0" prefWidth="200.0" />
+      <ScrollPane layoutX="560.0" layoutY="219.0" prefHeight="150.0" prefWidth="200.0" fx:id="rankingPane"/>
    </children>
 </AnchorPane>

@@ -54,6 +54,12 @@ public class Controller {
         try{
         	Tournoi tournament = new Tournoi("tournoi0",this.menRanking, this.womenRanking);
         	tournament.start();
+        	try {
+        		tournament.join();
+        	}
+        	catch(Exception e) {
+        		e.printStackTrace();
+        	}
             newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
         }catch (Exception e){
             e.printStackTrace();
@@ -64,6 +70,12 @@ public class Controller {
         try{
         	Annee year = new Annee(this.menRanking, this.womenRanking);
         	year.start();
+        	try {
+        		year.join();
+        	}
+        	catch(Exception e) {
+        		e.printStackTrace();
+        	}
             newSwitch.uploadNewScene((Stage)yearButton.getScene().getWindow(),"Scenes/Year.fxml",1000, 750,new YearController(this.menRanking, this.womenRanking));
         }catch (Exception e){
             e.printStackTrace();
