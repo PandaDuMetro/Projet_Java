@@ -53,13 +53,7 @@ public class Controller {
     public void tournamentButtonAction(){
         try{
         	Tournoi tournament = new Tournoi("tournoi0",this.menRanking, this.womenRanking);
-        	tournament.start();
-        	try {
-        		tournament.join();
-        	}
-        	catch(Exception e) {
-        		e.printStackTrace();
-        	}
+        	tournament.run();
             newSwitch.uploadNewScene((Stage)tournamentButton.getScene().getWindow(),"Scenes/Tournament.fxml",
                     1000, 750,new TournamentController(this.menRanking, this.womenRanking, "tournoi0"));
         }catch (Exception e){

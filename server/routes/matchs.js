@@ -18,7 +18,7 @@ router.post('/newmatch', (req, res, next) => {
   });
   Match.addMatch(match, (err, match) => {
     if(err) {
-      res.json('Error');
+      res.sendStatus(400);
     } else {
       res.send(match._id);
     }
@@ -56,18 +56,13 @@ router.post('/getbyname', (req, res, next) => {
 });
 
 
-router.get('/remiseazero', (req, res, body) => {
+router.post('/remiseazero', (req, res, body) => {
   Match.remove({}, (err, res) => {
     if (err) throw err;
+    res.sendStatus(200);
     console.log(res);
   })
 });
 
-// Test function
-router.post('/test', (req, res, next) => {
-  console.log('test function');
-  //console.log(req.body);
-  res.send('Connection Sucess');
-})
 
 module.exports = router;

@@ -72,18 +72,12 @@ router.post('/isinitiated', (req, res, next) => {
   })
 });
 
-router.get('/remiseazero', (req, res, body) => {
+router.post('/remiseazero', (req, res, body) => {
   Player.remove({}, (err, data) => {
     if (err) throw err;
     res.json(data);
   });
 });
 
-// Test
-router.post('/test', (req, res, next) => {
-  console.log('test function');
-  //console.log(req.body);
-  res.send('Connection Sucess');
-})
 
 module.exports = router;

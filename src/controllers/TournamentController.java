@@ -28,6 +28,7 @@ public class TournamentController extends Controller {
 
     public TournamentController(Classement menRanking, Classement womenRanking, String name) {
 		super(menRanking, womenRanking);
+		this.sex = false;
 		this.name = name;
 	}
 
