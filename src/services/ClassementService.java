@@ -74,6 +74,6 @@ public abstract class ClassementService extends BddService {
 
     public static int rand() {
         Random rand = new Random();
-        return rand.nextInt(100) + 1;
+        return rand.nextInt(60) + 40;
     }
 }

@@ -55,7 +55,6 @@ public class Annee extends Thread {
 				response.append('\r');
 			}
 			rd.close();
-			System.out.println(response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +74,6 @@ public class Annee extends Thread {
 		//attendre fin dU tournoi pour lancer le prochain
 		for(int i = 0; i < 6; i++) {
 			this.tournois.get(i).run();
-			System.out.println("tournoi "+(i+1)+"fini");
 		}
 	}
 }
