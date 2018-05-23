@@ -13,14 +13,14 @@
             <Font name="Noto Sans CJK JP Medium" size="25.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="216.0" layoutY="174.0" text="Player 1" fx:id="player1Name">
+      <Label fx:id="player1Name" alignment="CENTER" layoutX="204.0" layoutY="170.0" text="Player 1">
          <font>
-            <Font name="Noto Sans CJK JP Medium" size="18.0" />
+            <Font name="Noto Sans CJK JP Medium" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="716.0" layoutY="174.0" text="Player 2" fx:id="player2Name">
+      <Label fx:id="player2Name" alignment="CENTER" layoutX="704.0" layoutY="170.0" text="Player 2">
          <font>
-            <Font name="Noto Sans CJK JP Medium" size="18.0" />
+            <Font name="Noto Sans CJK JP Medium" size="24.0" />
          </font>
       </Label>
       <ScrollPane fx:id="player1Field" layoutX="111.0" layoutY="230.0" prefHeight="185.0" prefWidth="278.0" />

@@ -25,6 +25,7 @@
       </Label>
       <ScrollPane fx:id="menRankingPane" layoutX="85.0" layoutY="242.0" prefHeight="264.0" prefWidth="280.0" />
       <ScrollPane fx:id="womenRankingPane" layoutX="650.0" layoutY="242.0" prefHeight="264.0" prefWidth="280.0" />
-      <Button fx:id="returnButton" layoutX="400.0" layoutY="506.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="100.0" prefWidth="200.0" text="Return" />
+      <Button fx:id="returnButton" layoutX="409.0" layoutY="606.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="100.0" prefWidth="200.0" text="Return" />
+      <Button fx:id="resetRanksButton" layoutX="409.0" layoutY="479.0" mnemonicParsing="false" onAction="#resetRanksButtonAction" prefHeight="100.0" prefWidth="200.0" text="Reset Ranks" />
    </children>
 </AnchorPane>

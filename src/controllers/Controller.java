@@ -70,7 +70,7 @@ public class Controller {
     		loader2.setController(new RankingController(this.menRanking, this.womenRanking));
     		Parent root = loader2.load();
             newStage.setTitle("Ranking window");
-            newStage.setScene(new Scene(root, 1000, 650));
+            newStage.setScene(new Scene(root, 1000, 750));
             root.getStylesheets().add("src/sample/CSS/style.css");
             newStage.show();
         }catch (Exception e){

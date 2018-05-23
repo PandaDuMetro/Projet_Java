@@ -24,6 +24,7 @@ public class RankingController extends Controller {
 
 	@FXML
     public javafx.scene.control.Button returnButton;
+    public javafx.scene.control.Button resetRanksButton;
 	public ScrollPane menRankingPane;
 	public ScrollPane womenRankingPane;
 	public javafx.scene.control.Label powerLabel;
@@ -51,7 +52,7 @@ public class RankingController extends Controller {
 		        		loader2.setController(self);
 		        		Parent root = loader2.load();
 		                newStage.setTitle("Player window");
-		                newStage.setScene(new Scene(root, 1000, 750));
+		                newStage.setScene(new Scene(root, 800, 550));
 		                root.getStylesheets().add("src/sample/CSS/style.css");
 		                newStage.show();
 		                Player player = new Player(
@@ -62,7 +63,7 @@ public class RankingController extends Controller {
 		                nameLabel.setText(player.getName());
 		                powerLabel.setText(""+player.getPower());
 		                staminaLabel.setText(""+player.getStamina());
-		                rankingLabel.setText(""+player.getPoints());
+		                //rankingLabel.setText(""+player.getPoints());
 		                rankLabel.setText(""+(self.menRanking.getPlayers().indexOf(player)+1));
 		            }catch (Exception ex){
 		                ex.printStackTrace();
@@ -88,7 +89,7 @@ public class RankingController extends Controller {
 		        		loader2.setController(self);
 		        		Parent root = loader2.load();
 		                newStage.setTitle("Player window");
-		                newStage.setScene(new Scene(root, 1000, 750));
+		                newStage.setScene(new Scene(root, 800, 550));
 		                root.getStylesheets().add("src/sample/CSS/style.css");
 		                newStage.show();
 		                Player player = new Player(
@@ -99,7 +100,7 @@ public class RankingController extends Controller {
 		                nameLabel.setText(player.getName());
 		                powerLabel.setText(""+player.getPower());
 		                staminaLabel.setText(""+player.getStamina());
-		                rankingLabel.setText(""+player.getPoints());
+		                //rankingLabel.setText(""+player.getPoints());
 		                rankLabel.setText(""+(self.womenRanking.getPlayers().indexOf(player)+1));
 		            }catch (Exception ex){
 		                ex.printStackTrace();
@@ -109,6 +110,11 @@ public class RankingController extends Controller {
 		    content2.getChildren().add(label);
 		    i++;
 		}
+	}
+
+	@FXML
+	public  void resetRanksButtonAction(){
+		System.out.println("reset");
 	}
 
     @FXML

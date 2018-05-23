@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="63.0" prefHeight="50.0" prefWidth="500.0" text="Player" fx:id="nameLabel">
+      <Label fx:id="nameLabel" alignment="CENTER" layoutX="150.0" layoutY="63.0" prefHeight="50.0" prefWidth="500.0" text="Player">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="36.0" />
          </font>
@@ -23,38 +23,35 @@
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="242.0" layoutY="169.0" text="powerValue" fx:id="powerLabel">
+      <Label fx:id="powerLabel" layoutX="242.0" layoutY="169.0" text="powerValue">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label layoutX="242.0" layoutY="223.0" text="staminaValue" fx:id="staminaLabel">
+      <Label fx:id="staminaLabel" layoutX="242.0" layoutY="223.0" text="staminaValue">
          <font>
             <Font size="14.0" />
          </font></Label>
       <Button fx:id="returnButton" layoutX="575.0" layoutY="449.0" mnemonicParsing="false" onAction="#returnButtonAction" prefHeight="50.0" prefWidth="150.0" text="Return" />
-      <ScrollPane layoutX="119.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" fx:id="matchBox"/>
+      <ScrollPane fx:id="matchBox" layoutX="119.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="184.0" layoutY="275.0" text="Matchs :">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="463.0" layoutY="185.0" text="Ranking Points : ">
+      <Label layoutX="400.0" layoutY="275.0" text="Ranking Points : ">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="650.0" layoutY="192.0" text="RankingValue" fx:id="rankingLabel">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="499.0" layoutY="290.0" text="Ranking :">
+      <Label layoutX="480.0" layoutY="164.0" text="Ranking :">
          <font>
             <Font name="Noto Sans CJK JP Medium" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="677.0" layoutY="296.0" text="rank" fx:id="rankLabel">
+      <Label fx:id="rankLabel" layoutX="650.0" layoutY="169.0" text="Actual Rank">
          <font>
             <Font size="14.0" />
          </font></Label>
+      <ScrollPane layoutX="560.0" layoutY="219.0" prefHeight="150.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
