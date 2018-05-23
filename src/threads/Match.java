@@ -57,8 +57,8 @@ public class Match extends Thread {
 		int set = 0;
 		while(this.sets[0] != 2 && this.sets[1] != 2 && this.player1.getStaminaMatch() > 0 && this.player2.getStaminaMatch() > 0) {
 			while(this.setIsOver(this.points[set+0], this.points[set+1]) == 0) {
-				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)); //calcul valeurs
-				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100));
+				int val1 = (this.player1.getPower()/(100-this.player1.getStaminaMatch()))*(rand.nextInt(100)+1); //calcul valeurs
+				int val2 = (this.player2.getPower()/(100-this.player2.getStaminaMatch()))*(rand.nextInt(100)+1);
 				if(val1 > val2) { //joueur 1 gagne le point
 					this.points[set+0]++;
 				}
@@ -73,17 +73,17 @@ public class Match extends Thread {
 		}
 		if(this.sets[0] == 2 || this.player2.getStaminaMatch() < 1) {
 			this.winner = this.player1;
-			/*this.player1.setRank((this.nbRonde/7)*
+			this.player1.setRank((this.nbRonde/7)*
 					(this.player2.getPoints()/this.player1.getPoints())*
-					(this.sets[0] - this.sets[1]));	*/					//calcul des nouveaux points au classement
+					(this.sets[0] - this.sets[1]));						//calcul des nouveaux points au classement
 			this.service.addToDb();
 			//requete victoire match
 		}
 		else if(this.sets[1] == 2 || this.player1.getStaminaMatch() < 1) {
 			this.winner = this.player2;
-			/*this.player2.setRank((this.nbRonde/7)*
+			this.player2.setRank((this.nbRonde/7)*
 					(this.player1.getPoints()/this.player2.getPoints())*
-					(this.sets[1] - this.sets[0]));*/
+					(this.sets[1] - this.sets[0]));
 			this.service.addToDb();
 			//requete victoire match
 		}

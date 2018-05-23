@@ -32,7 +32,7 @@ public class Tournoi extends Thread {
 		//random sur le tableau des joueurs
 		Collections.shuffle(menPlayers);
 		//boucle while jusqu'a 1 joueur restant
-		int ronde = 1;
+		int ronde = 0;
 		while(menPlayers.size() != 1) {
 			ronde++;
 			//chaque ronde : tableau de matchs joueurs 2 a deux
@@ -47,9 +47,7 @@ public class Tournoi extends Thread {
 				exec.execute(matchs.get(j));
 			}
 			exec.shutdown(); //empecher d'autres de se lancer
-			while(!exec.isTerminated()) {
-				 //attente des threads
-			}
+			while(!exec.isTerminated()) {} //attente des threads
 			System.out.println("Ronde terminée");
 			//on recupere les vainqueurs pour la prochaine ronde
 			matchs.clear();
@@ -59,7 +57,7 @@ public class Tournoi extends Thread {
 		//puis pour les femmes : 
 		List<Player> womenPlayers = this.fPlayers.getPlayers();
 		Collections.shuffle(womenPlayers);
-		ronde = 1;
+		ronde = 0;
 		while(womenPlayers.size() != 1) {
 			ronde++;
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) {
@@ -72,8 +70,7 @@ public class Tournoi extends Thread {
 				exec.execute(matchs.get(j));
 			}
 			exec.shutdown();
-			while(!exec.isTerminated()) {
-			}
+			while(!exec.isTerminated()) {}
 			System.out.println("ronde f terminée");
 			matchs.clear();
 			womenPlayers.clear();
