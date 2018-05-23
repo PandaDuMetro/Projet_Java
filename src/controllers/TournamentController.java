@@ -88,7 +88,7 @@ public class TournamentController extends Controller {
 	        		    			loader2.setController(new MatchController(self.menRanking, self.womenRanking, match));
 	        		    			Parent root = loader2.load();
 	        		    			newStage.setTitle("Player window");
-	        		                newStage.setScene(new Scene(root, 1000, 750));
+	        		                newStage.setScene(new Scene(root, 800, 500));
 	        		                root.getStylesheets().add("src/sample/CSS/style.css");
 	        		                newStage.show();
 	        		        	}catch (Exception ex){
