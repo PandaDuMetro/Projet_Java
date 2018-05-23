@@ -37,7 +37,7 @@ router.post('/getmatch', (req, res, next) => {
 
 router.post('/getbytrs', (req, res, next) => {
   console.log(req.body);
-  var query = {sex: req.body.sex, nameTournament: req.body.nameTournament, ronde: req.body.ronde}
+  var query = {sex: req.body.sex, nameTournament: req.body.nameTournament, nbRonde: req.body.nbRonde}
   Match.find(query, (err, data) => {
     console.log(data);
     if(err) throw err;

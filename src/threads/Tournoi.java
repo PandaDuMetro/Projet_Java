@@ -57,7 +57,6 @@ public class Tournoi {
 		while(womenPlayers.size() != 1) {
 			ronde++;
 			for(int i = 0; i < 64/((int)Math.pow(2,ronde)); i++) {
-				System.out.println(womenPlayers.size());
 				matchs.add(new Match(womenPlayers.get(0), womenPlayers.get(1), ronde, true, this.name));
 				womenPlayers.remove(0);
 				womenPlayers.remove(0);

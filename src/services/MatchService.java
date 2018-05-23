@@ -11,12 +11,13 @@ public class MatchService extends BddService {
 
     private Match match;
 
-
+    //recuperer un match grace au tournois, une ronde et le sexe
     public MatchService(Boolean sex, String nameTournament, int ronde){
         this.executePost("http://localhost:8080/matchs/getbytrs", "{\"sex\": "+sex+
                 ",\"nameTournament\": \""+nameTournament+ "\",\"nbRonde\" : "+ronde+" }");
     }
 
+    //recupurer tous les matchs d'un joueur
     public MatchService(String name){
         this.executePost("http://localhost:8080/matchs/getbyname", "{\"name\":\""+name+"\"}");
     }
@@ -25,6 +26,7 @@ public class MatchService extends BddService {
         this.match = match;
     }
 
+    //met en forme la requete
     public String getParameters() {
         MatchToSave toSave = new MatchToSave(this.match.getPlayer1().getName(), this.match.getPlayer2().getName(),
                 this.match.getPoints(), this.match.getSets(), this.match.getWinner().getName(),
@@ -33,6 +35,7 @@ public class MatchService extends BddService {
         return json.toJson(toSave);
     }
 
+    //ajoute le match a la bdd
     public void addToDb() {
         this.serverResponse = "";
         this.executePost("http://localhost:8080/matchs/newmatch", this.getParameters());
@@ -51,14 +54,10 @@ public class MatchService extends BddService {
         this.match.setSex(elts.sex);
         this.match.setNameTournament(elts.nameTournament);
         this.match.set_id(elts._id);
-        if(elts.winner == elts.player1){
-            this.match.setWinner(this.match.getPlayer1());
-        }
-        else {
-            this.match.setWinner(this.match.getPlayer2());
-        }
+        this.match.setWinner(new Player(elts.winner));
     }
 
+    //permet de convertir la reponse du serveur en objets Match
     public List getMany(){
         Gson json = new Gson();
         MatchToSave[] matchesFromDb = json.fromJson(this.serverResponse, MatchToSave[].class);
@@ -70,6 +69,8 @@ public class MatchService extends BddService {
         return matches;
     }
 
+
+    //Classe permettant de faire le lien avec la bdd
     class MatchToSave {
         String player1;
         String player2;
