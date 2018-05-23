@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import src.Classement;
 import src.Player;
 
-public class Tournoi extends Thread {
+public class Tournoi {
 	
 	private String name;
 	private Classement players;
@@ -22,9 +22,6 @@ public class Tournoi extends Thread {
 		this.fPlayers = fPlayers;
 	}
 
-
-
-	@Override
 	public void run() {
 		ExecutorService exec;
 		List<Player> menPlayers = this.players.getPlayers();
